@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CreateComponentOptions } from '@angular/core/src/render3/component';
+import { FurnitureModel } from './models/furniture.model';
+import { CreateFurnitureModel } from './models/create-furniture.model';
 
 const createUrl = "http://localhost:5000/furniture/create";
 const allUrl = "http://localhost:5000/furniture/all";
@@ -13,13 +14,23 @@ const deleteUrl = "http://localhost:5000/furniture/delete/";
     providedIn: 'root'
 })
 
-export class FurnitureServise {
+export class FurnitureService {
     constructor(private http: HttpClient) {
-
     }
 
-    createFurniture(body: CreateComponentOptions) {
+    createFurniture(body: CreateFurnitureModel) {
         return this.http.post(createUrl, body);
     }
-
+    getAllFurniture(){
+        return this.http.get<FurnitureModel[]>(allUrl);
+    }
+    getFurnitureDetails(id:string){
+        return this.http.get<FurnitureModel>(detailsUrl + id);
+    }
+    getMyFurniture(){
+        return this.http.get<FurnitureModel[]>(myFurnitureUrl);
+    } 
+    deleteFurniture(id:string){
+       return this.http.delete(deleteUrl + id);
+    }
 }

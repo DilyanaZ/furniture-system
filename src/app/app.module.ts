@@ -5,6 +5,7 @@ import {ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -19,7 +20,6 @@ import { AllFurnitureComponent } from './furniture/all-furniture/all-furniture.c
 import { FurnitureDetailsComponent } from './furniture/furniture-details/furniture-details.component';
 import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.component';
  
-
 
 @NgModule({
   declarations: [
@@ -40,10 +40,12 @@ import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.comp
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CustomFormsModule
   ],
   providers: [ 
-    AuthService,{
+    AuthService,
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi:true
@@ -52,7 +54,7 @@ import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.comp
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
     multi:true
-  }
+    }
   ],
   bootstrap: [AppComponent]
 })
