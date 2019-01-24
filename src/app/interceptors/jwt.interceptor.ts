@@ -40,6 +40,7 @@ export class JwtInterceptor implements HttpInterceptor {
                     this.toastr.success (res.body.message, "Success!");
                     this.router.navigate(['/furniture/all']);
                 }
+                
             }));
     }
 
