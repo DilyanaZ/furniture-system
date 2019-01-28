@@ -8,6 +8,7 @@ const allUrl = "http://localhost:5000/furniture/all";
 const detailsUrl = "http://localhost:5000/furniture/details/";
 const myFurnitureUrl = "http://localhost:5000/furniture/mine";
 const deleteUrl = "http://localhost:5000/furniture/delete/";
+const searchUrl = "http://localhost:5000/furniture/all?search=";
 
 
 @Injectable({
@@ -21,16 +22,20 @@ export class FurnitureService {
     createFurniture(body: CreateFurnitureModel) {
         return this.http.post(createUrl, body);
     }
-    getAllFurniture(){
+    getAllFurniture() {
         return this.http.get<FurnitureModel[]>(allUrl);
     }
-    getFurnitureDetails(id:string){
+    getFurnitureDetails(id: string) {
         return this.http.get<FurnitureModel>(detailsUrl + id);
     }
-    getMyFurniture(){
+    getMyFurniture() {
         return this.http.get<FurnitureModel[]>(myFurnitureUrl);
-    } 
-    deleteFurniture(id:string){
-       return this.http.delete(deleteUrl + id);
     }
+    deleteFurniture(id: string) {
+        return this.http.delete(deleteUrl + id);
+    }
+    findFurniture(searchedInput : string) {
+        return this.http.get<FurnitureModel[]>(searchUrl + searchedInput);
+    }
+
 }

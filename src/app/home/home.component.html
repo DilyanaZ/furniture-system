@@ -1,3 +1,45 @@
-<h1>
-  Hello {{username}}!
-</h1>
+<div id="main">
+    <h1>
+        Hello {{username}} !
+    </h1>
+    <div *ngIf="!authService.isAuthenticated()">
+        <p>This is our landing page, if you want to see our furniture, you must login.</p>
+    </div>
+</div>
+
+<div *ngIf="authService.isAuthenticated()" id="search-div" class="content badge">
+    <h2>Find a furniture</h2>
+    <h3>Search for a furniture using the form below:</h3>
+
+    <form #searchForm="ngForm" (submit)="searchFurniture(searchForm.value.search)">
+        <input id="search" type="text" class="form-control" name="search" ngModel #search="ngModel">
+        <br>
+        <button type="submit" class="btn btn-dark">Search</button>
+    </form>
+</div>
+<div *ngIf="isSearched" class="row space-top">
+    <div class="container">
+        <div class="panel-body" *ngIf="isSearched">
+            <div class="col-md-4">
+                <p>{{searchedFurnitures | json}}</p>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let f of searchedFurnitures" class="col-md-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <blockquote class="card-blockquote">
+                    <img src="{{f.image}}" />
+                    <p>{{f.description}}</p>
+                    <footer>Someone famous in
+                        <cite title="Source Title">{{f.year}}</cite>
+                    </footer>
+                    <div class="pull-right">
+                        <a routerLink="../furniture/details/{{f.id}}" class="btn btn-info">Details</a>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+</div>

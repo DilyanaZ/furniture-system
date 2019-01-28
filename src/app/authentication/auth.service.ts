@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 const loginUrl = 'http://localhost:5000/auth/login';
 const registerUrl = 'http://localhost:5000/auth/signup';
 
+
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient,

@@ -28,7 +28,7 @@ export class JwtInterceptor implements HttpInterceptor {
                 if (res instanceof HttpResponse && res.body.token) {
                     this.saveToken(res.body);
                     this.toastr.success(res.body.message, "Success");
-                    this.router.navigate(['/furniture/all']);
+                    this.router.navigate(['/home']);
                 }
  
                 if (res instanceof HttpResponse && res.body.success && res.url.endsWith('signup')) {
@@ -38,6 +38,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
                 if (res instanceof HttpResponse && res.body.success && res.url.endsWith('create')) {
                     this.toastr.success (res.body.message, "Success!");
+                    console.log(res.body);
                     this.router.navigate(['/furniture/all']);
                 }
                 

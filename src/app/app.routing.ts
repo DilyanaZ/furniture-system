@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { SignupComponent } from './authentication/signup/signup.component';
-import { all } from 'q';
 import { AllFurnitureComponent } from './furniture/all-furniture/all-furniture.component';
 import { FurnitureDetailsComponent } from './furniture/furniture-details/furniture-details.component';
 import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.component';
@@ -21,7 +20,7 @@ const routes : Routes = [
      {path: 'details/:id', component: FurnitureDetailsComponent}, 
      {path:'my', component:MyFurnitureComponent},
      {path:'create', component:CreateFurnitureComponent}
-   ]
+     ]
    }
 ]
 

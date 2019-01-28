@@ -1,0 +1,41 @@
+body {
+    background-color: blanchedalmond;
+}
+
+div {
+    background-color: blanchedalmond;
+}
+
+#main {
+    background-color: beige;
+}
+
+h1 {
+    height: 200px;
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 5px 5px 8px rgb(34, 51, 82);
+}
+
+h2,
+h3 {
+    font-style: normal;
+    text-transform: none;
+    color: darkslateblue;
+}
+
+input#search {
+    border-color: black;
+}
+
+#search-div {
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid darkslateblue;
+    border-radius: 15px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}

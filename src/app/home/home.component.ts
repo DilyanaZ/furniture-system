@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../authentication/auth.service';
+import { FurnitureService } from '../furniture/furniture.service';
+import { FurnitureModel } from '../furniture/models/furniture.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   username : string;
+  searchedFurnitures: any;
+  isSearched: boolean;
+  
 
-  constructor() { }
+  constructor(private authService: AuthService,
+    private furnitureServise : FurnitureService) { }
+
+    searchFurniture(searchedInput){
+    console.log(searchedInput);
+    this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
+      this.searchedFurnitures = res;
+    });
+    console.log(this.searchedFurnitures);
+    this.isSearched = true;
+  }
 
   ngOnInit() {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser) {
        this.username = JSON.parse(localStorage.getItem('currentUser')).username;
     }
+  
   }
 
 }
