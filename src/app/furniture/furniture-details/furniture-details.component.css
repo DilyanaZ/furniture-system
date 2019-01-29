@@ -1,4 +1,22 @@
-blockquote>img {
-    width: 150px;
-    height: 150px;
+img {
+    width: 200px;
+    height: 220px;
+}
+
+div.container {
+    height: 400px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+h1 {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: rgb(245, 189, 4);
+    font-size: 1.8em;
+    text-shadow: 3px 3px 3px rgb(50, 22, 126);
+}
+
+#info {
+    padding-top: 20px;
 }

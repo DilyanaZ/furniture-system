@@ -8,34 +8,36 @@
 </div>
 
 <div *ngIf="authService.isAuthenticated()" id="search-div" class="content badge">
-    <h2>Find a furniture</h2>
-    <h3>Search for a furniture using the form below:</h3>
+    <div [hidden]="isSearched">
+        <h2>Find a furniture</h2>
+        <h3>Search for a furniture using the form below:</h3>
 
-    <form #searchForm="ngForm" (submit)="searchFurniture(searchForm.value.search)">
-        <input id="search" type="text" class="form-control" name="search" ngModel #search="ngModel">
-        <br>
-        <button type="submit" class="btn btn-dark">Search</button>
-    </form>
+        <form #searchForm="ngForm" (submit)="searchFurniture(searchForm.value.search)">
+            <input id="search" type="text" class="form-control" name="search" ngModel #search="ngModel">
+            <br>
+            <button type="submit" class="btn btn-dark">Search</button>
+        </form>
+    </div>
 </div>
 <div *ngIf="isSearched" class="row space-top">
-    <div class="container">
+    <!-- <div class="container">
         <div class="panel-body" *ngIf="isSearched">
             <div class="col-md-4">
                 <p>{{searchedFurnitures | json}}</p>
             </div>
         </div>
-    </div>
+    </div> -->
     <div *ngFor="let f of searchedFurnitures" class="col-md-4">
-        <div class="card text-white bg-primary">
-            <div class="card-body">
-                <blockquote class="card-blockquote">
+        <div class="card text-white bg-pdark">
+            <div class="card-body bg-info">
+                <blockquote class="card-blockquote bg-dark">
                     <img src="{{f.image}}" />
                     <p>{{f.description}}</p>
-                    <footer>Someone famous in
-                        <cite title="Source Title">{{f.year}}</cite>
+                    <footer>
+                        <cite title="Source Title">Famous in {{f.year}}</cite>
                     </footer>
                     <div class="pull-right">
-                        <a routerLink="../furniture/details/{{f.id}}" class="btn btn-info">Details</a>
+                        <a routerLink="../furniture/details/{{f.id}}" class="btn btn-dark">Details</a>
                     </div>
                 </blockquote>
             </div>

@@ -5,22 +5,22 @@
         </div>
     </div>
     <div class="row space-top">
-        <div class="col-md-4">
-            <div class="card text-white bg-primary">
-                <div class="card-body">
+        <div class="col-md-6">
+            <div class="card text-white bg-dark">
+                <div class="card-body bg-info">
                     <blockquote class="card-blockquote">
                         <img src="{{f.image}}" />
                     </blockquote>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <p>Make: {{f.make}}</p>
-            <p>Model: {{f.model}}</p>
-            <p>Year: {{f.year}}</p>
-            <p>Description: {{f.year}}</p>
-            <p>Price: {{f.price}}</p>
-            <p>Material:{{f. material}}</p>
+        <div id="info" class="col-md-6 bg-primary">
+            <p><b>Make: </b>{{f.make}}</p>
+            <p><b>Model: </b>{{f.model}}</p>
+            <p><b>Year: </b>{{f.year}}</p>
+            <p><b>Description: </b>{{f.description}}</p>
+            <p><b>Price: </b>{{f.price}}</p>
+            <p><b>Material: </b>{{f.material}}</p>
         </div>
     </div>
 </div>

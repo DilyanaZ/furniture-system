@@ -6,6 +6,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing';
 import { CustomFormsModule } from 'ng2-validation';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -40,7 +41,8 @@ import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.comp
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    CustomFormsModule
+    CustomFormsModule, 
+    NgxPaginationModule
   ],
   providers: [ 
     AuthService,

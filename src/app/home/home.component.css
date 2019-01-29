@@ -26,6 +26,7 @@ h3 {
 
 input#search {
     border-color: black;
+    border-radius: 10px;
 }
 
 #search-div {
@@ -36,6 +37,18 @@ input#search {
 }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 120px;
+}
+
+blockquote>img,
+div.pull-right,
+blockquote>footer {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+p {
+    color: rgb(245, 189, 4);
+    font-size: 1.8em;
 }

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   username : string;
   searchedFurnitures: any;
   isSearched: boolean;
-  
+
 
   constructor(private authService: AuthService,
     private furnitureServise : FurnitureService) { }
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     if (currentUser) {
        this.username = JSON.parse(localStorage.getItem('currentUser')).username;
     }
-  
+
   }
 
 }
