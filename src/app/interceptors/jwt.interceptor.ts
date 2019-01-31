@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
- 
+
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -30,18 +30,27 @@ export class JwtInterceptor implements HttpInterceptor {
                     this.toastr.success(res.body.message, "Success");
                     this.router.navigate(['/home']);
                 }
- 
+
                 if (res instanceof HttpResponse && res.body.success && res.url.endsWith('signup')) {
                     this.toastr.success(res.body.message, "Success!");
                     this.router.navigate(['/signin']);
                 }
 
-                if (res instanceof HttpResponse && res.body.success && res.url.endsWith('create')) {
-                    this.toastr.success (res.body.message, "Success!");
+                if (res instanceof HttpResponse && res.body.success && res.url.endsWith('furniture/create')) {
+                    this.toastr.success(res.body.message, "Success!");
                     console.log(res.body);
                     this.router.navigate(['/furniture/all']);
                 }
-                
+                if (res instanceof HttpResponse && res.body.success && res.url.endsWith('reviews/create')) {
+                    this.toastr.success(res.body.message, "Success!");
+                    console.log(res.body);
+                    this.router.navigate(['/furniture/all']);
+                }
+                if (res instanceof HttpResponse && res.body.success && res.url.endsWith('reviews')) {
+                    this.toastr.success(res.body.message, "Success!");
+                    console.log(res.body);
+                }
+
             }));
     }
 

@@ -15,10 +15,11 @@
                 <div class="card-body">
                     <blockquote class="card-blockquote">
                         <img src="{{f.image}}" />
-                        <p>{{f.description}}</p>
-                        <footer>Someone famous in
-                            <cite title="Source Title">{{f.year}}</cite>
+                        <p class="text-left text-center">{{f.make}}</p>
+                        <footer>
+                            <cite title="Source Title"> Famous in {{f.year}}</cite>
                         </footer>
+                        <br>
                         <div class="pull-right">
                             <a routerLink="../details/{{f.id}}" class="btn btn-dark">Details</a>
                         </div>

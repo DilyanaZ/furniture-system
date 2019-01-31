@@ -22,6 +22,7 @@ h3 {
     font-style: normal;
     text-transform: none;
     color: darkslateblue;
+    text-shadow: 3px 3px 3px rgb(185, 164, 243);
 }
 
 input#search {

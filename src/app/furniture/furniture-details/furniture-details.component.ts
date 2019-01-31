@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FurnitureModel } from '../models/furniture.model';
+import {FurnitureReviewModel} from '../models/furniture-review.model';
 import { ActivatedRoute } from '@angular/router';
 import { FurnitureService } from '../furniture.service';
 import { Observable } from 'rxjs';
@@ -11,16 +12,38 @@ import { Observable } from 'rxjs';
 })
 export class FurnitureDetailsComponent implements OnInit {
   furniture: Observable<FurnitureModel>;
+  reviewResult:Observable<FurnitureReviewModel[]>;
   id: string;
-   
-  constructor(private route:ActivatedRoute,
-    private furnitureService: FurnitureService) { 
+
+  furnitureReview: FurnitureReviewModel;
+  ratings: number[];
+  numberOfLikes: number = 0;
+  alreadyLiked: boolean;
+  isReviewShown:boolean = false;
+ 
+
+  constructor(private route: ActivatedRoute,
+    private furnitureService: FurnitureService) {
     this.id = this.route.snapshot.params['id'];
+    this.furnitureReview = new FurnitureReviewModel("", 1);
+    this.ratings = [1,2,3,4,5];
   }
 
   ngOnInit() {
     this.furniture = this.furnitureService.getFurnitureDetails(this.id);
+    this.reviewResult = this.furnitureService.getFurnitureReview(this.id);
+  }
+
+  getUserReview(){
+    this.isReviewShown = !this.isReviewShown;
+  }
+  
+  like(){
+    
   }
 
 
+  // sendReview(data) {
+  //   console.log(data);
+  // }
 }
