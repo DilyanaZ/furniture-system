@@ -1,57 +1,59 @@
-<div *ngIf="furniture | async as f" class="container">
+<div id="main" *ngIf="furniture | async as f" class="container">
     <div class="row space-top">
         <div class="col-md-12">
             <h1>Furniture Details</h1>
         </div>
     </div>
-    <div class="row space-top text-center">
-        <div class="col-md-6">
-            <div class="card text-dark bg-primary">
-                <div class="card-body">
-                    <blockquote class="card-blockquote">
-                        <img src="{{f.image}}" />
-                    </blockquote>
-                    <br>
-                    <button type="submit" class="btn btn-info" (click)="getUserReview()">Opinions</button>
+    <div class="main col-md-12">
+        <div class="row space-top text-center">
+            <div class="col-md-6">
+                <div class="card text-dark bg-primary">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <img src="{{f.image}}" />
+                        </blockquote>
+                        <br>
+                        <button type="submit" class="btn btn-info" (click)="getOpinions()">Opinions</button>
+                    </div>
                 </div>
             </div>
-
-            <div [hidden]="isReviewShown" id="userReview" class="space-top text-center">
-                <ul>
-                    <h3>The statisic for this product is: </h3>
-                    <li *ngFor="let res of reviewResult | async">
-                        User: {{res.user | json}} : Rating: {{res.rating}}
-                    </li>
-                </ul>
+            <div id="info" class="col-md-6">
+                <p><b>Make: </b>{{f.make}}</p>
+                <p><b>Model: </b>{{f.model}}</p>
+                <p><b>Year: </b>{{f.year}}</p>
+                <p><b>Description: </b>{{f.description}}</p>
+                <p><b>Price: </b>{{f.price}}</p>
+                <p><b>Material: </b>{{f.material}}</p>
+                <p> <button type="submit" class="btn btn-info" (click)="like()" [disabled]="">Like</button></p>
             </div>
-        </div>
-        <div id="info" class="col-md-6">
-            <p><b>Make: </b>{{f.make}}</p>
-            <p><b>Model: </b>{{f.model}}</p>
-            <p><b>Year: </b>{{f.year}}</p>
-            <p><b>Description: </b>{{f.description}}</p>
-            <p><b>Price: </b>{{f.price}}</p>
-            <p><b>Material: </b>{{f.material}}</p>
-            <p> <button type="submit" class="btn btn-info" (click)="like()" [disabled]="">Like</button></p>
         </div>
     </div>
+</div>
 
-    <div id="sendReview" class="container col-md-6">
-        <h1>Opinion Form</h1>
-        {{furnitureReview | json}}
-        <form (ngSubmit)="getUserReview()" #reviewForm="ngForm">
-            <div class="form-group">
-                <label for="userComment">Your opinion:</label>
-                <input type="text" class="form-control" id="userComment" [(ngModel)]="furnitureReview.userComment" name="userComment" #userfield="ngModel" name="userComment" required>
-            </div>
-            <div class="form-group">
-                <label for="rate">Rate the product: </label>
-                <select class="form-control" id="rate" [(ngModel)]="furnitureReview.rating" name="rating" #rating="ngModel" required>
+<div *ngIf="isOpinionsShown && reviewResult" id="userReview" class="container row card space-top text-center">
+    <div class="col-md-6">
+        <h3>The statisic for this product is: </h3>
+        <ul>
+            <li *ngFor="let res of reviewResult | async">
+                User: {{res.user | json}} : Rating: {{res.rating}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="sendReview" class="container col-md-6">
+    <h1>Opinion Form</h1>
+    {{furnitureReview | json}}
+    <form (ngSubmit)="sendReview()" #reviewForm="ngForm">
+        <div class="form-group">
+            <label for="userComment">Your opinion:</label>
+            <input type="text" class="form-control" id="userComment" [(ngModel)]="furnitureReview.userComment" name="userComment" #userfield="ngModel" name="userComment" required>
+        </div>
+        <div class="form-group">
+            <label for="rate">Rate the product: </label>
+            <select class="form-control" id="rate" [(ngModel)]="furnitureReview.rating" name="rating" #rating="ngModel" required>
                     <option *ngFor="let rate of ratings"  [value]="rate">{{rate}}</option>
                 </select>
-            </div>
-            <button type="submit" class="btn btn-success" [disabled]="reviewForm.form.invalid">Submit</button>
-        </form>
-    </div>
-
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="reviewForm.form.invalid">Submit</button>
+    </form>
 </div>

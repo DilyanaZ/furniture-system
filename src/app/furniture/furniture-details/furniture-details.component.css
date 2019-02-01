@@ -3,8 +3,12 @@ img {
     height: auto;
 }
 
+#main {
+    margin-bottom: 20px;
+}
+
 div.container {
-    height: 400px;
+    /* height: 400px; */
     padding-bottom: 20px;
     padding-top: 20px;
 }
@@ -32,7 +36,7 @@ ul {
 
 #userReview {
     background-color: lightcyan;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 30px;
 }
 
