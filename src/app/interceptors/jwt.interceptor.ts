@@ -44,7 +44,7 @@ export class JwtInterceptor implements HttpInterceptor {
                 if (res instanceof HttpResponse && res.body.success && res.url.endsWith('reviews/create')) {
                     this.toastr.success(res.body.message, "Success!");
                     console.log(res.body);
-                    this.router.navigate(['/furniture/all']);
+                    // this.router.navigate(['/furniture/all']);
                 }
                 if (res instanceof HttpResponse && res.body.success && res.url.endsWith('reviews')) {
                     this.toastr.success(res.body.message, "Success!");
