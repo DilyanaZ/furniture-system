@@ -2,15 +2,13 @@
     <h1>
         Hello {{username}} !
     </h1>
-    <div *ngIf="!authService.isAuthenticated()">
-        <p>This is our landing page, if you want to see our furniture, you must login.</p>
+    <div *ngIf="!username">
+        <p>This is our landing page, if you want to see our furniture, you must <a routerLink="/signin">login.</a></p>
     </div>
 </div>
-
-<h2>Find a furniture</h2>
-<div *ngIf="authService.isAuthenticated()" id="search-div" class="content badge">
+<div *ngIf="username" id="search-div" class="content badge">
     <div [hidden]="isSearched">
-
+        <h2>Find a furniture</h2>
         <form #searchForm="ngForm" (submit)="searchFurniture(searchForm.value.search)">
             <h3>Search for a furniture using the form below:</h3>
             <input id="search" type="text" class="form-control" name="search" ngModel #search="ngModel">
@@ -43,5 +41,4 @@
             </div>
         </div>
     </div>
-
 </div>

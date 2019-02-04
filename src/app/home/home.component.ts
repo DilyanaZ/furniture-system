@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../authentication/auth.service';
 import { FurnitureService } from '../furniture/furniture.service';
 import { FurnitureModel } from '../furniture/models/furniture.model';
@@ -15,13 +16,16 @@ export class HomeComponent implements OnInit {
   isSearched: boolean;
 
 
-  constructor(private authService: AuthService,
-    private furnitureServise : FurnitureService) { }
+  constructor(private router : Router,
+    private authService: AuthService,
+    private furnitureServise : FurnitureService
+    ) { }
 
     searchFurniture(searchedInput){
     console.log(searchedInput);
     this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
       this.searchedFurnitures = res;
+      this.isSearched = true;
     });
     console.log(this.searchedFurnitures);
     this.isSearched = true;
