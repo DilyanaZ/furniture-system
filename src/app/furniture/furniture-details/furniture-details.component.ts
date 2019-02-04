@@ -15,10 +15,15 @@ export class FurnitureDetailsComponent implements OnInit {
   reviewResult: Observable<FurnitureReviewModel[]>;
   id: string;
 
+  currentUser = {
+    username: "",
+    alreadyLiked: false
+  };
+
+
   furnitureReview: FurnitureReviewModel;
   ratings: number[];
-  numberOfLikes: number = 0;
-  alreadyLiked: boolean;
+  itemLikes: number = 0;
   isOpinionsShown: boolean = false;
 
 
@@ -32,6 +37,10 @@ export class FurnitureDetailsComponent implements OnInit {
   ngOnInit() {
     this.furniture = this.furnitureService.getFurnitureDetails(this.id);
     this.reviewResult = this.furnitureService.getFurnitureReview(this.id);
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (this.currentUser) {
+      this.currentUser.username = JSON.parse(localStorage.getItem('currentUser')).username;
+    }
   }
 
   getOpinions() {
@@ -39,11 +48,17 @@ export class FurnitureDetailsComponent implements OnInit {
   }
 
   like() {
-
+    if (this.currentUser.username && !this.currentUser.alreadyLiked) {
+      this.itemLikes++;
+      this.currentUser.alreadyLiked = true;
+    }
+    this.furnitureService.like(this.id, this.currentUser).subscribe();
+    console.log(this.currentUser.username, this.currentUser.alreadyLiked);
   }
 
   sendReview() {
     //console.log(data);
     this.furnitureService.sendFurnitureRewiew(this.id, this.furnitureReview).subscribe();
+    console.log(this.furnitureReview);
   }
 }

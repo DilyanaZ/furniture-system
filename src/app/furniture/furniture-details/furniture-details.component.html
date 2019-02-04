@@ -35,18 +35,19 @@
         <h3>The statisic for this product is: </h3>
         <ul>
             <li *ngFor="let res of reviewResult | async">
-                User: {{res.user | json}} : Rating: {{res.rating}}
+                Rating: {{res.rating}} Comment: {{res.comment}}
             </li>
         </ul>
     </div>
 </div>
 <div id="sendReview" class="container col-md-6">
+    <p>{{furnitureReview | json}}</p>
     <h1>Opinion Form</h1>
-    {{furnitureReview | json}}
+
     <form (ngSubmit)="sendReview()" #reviewForm="ngForm">
         <div class="form-group">
-            <label for="userComment">Your opinion:</label>
-            <input type="text" class="form-control" id="userComment" [(ngModel)]="furnitureReview.userComment" name="userComment" #userfield="ngModel" name="userComment" required>
+            <label for="comment">Your opinion:</label>
+            <input type="text" class="form-control" id="comment" [(ngModel)]="furnitureReview.comment" name="comment" #userfield="ngModel" name="comment" required>
         </div>
         <div class="form-group">
             <label for="rate">Rate the product: </label>

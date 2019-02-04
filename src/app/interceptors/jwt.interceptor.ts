@@ -30,6 +30,9 @@ export class JwtInterceptor implements HttpInterceptor {
                     this.toastr.success(res.body.message, "Success");
                     this.router.navigate(['/home']);
                 }
+                if (res instanceof HttpResponse && res.body.success && res.url.endsWith('like')) {
+                    this.toastr.success(res.body.message, "Success!");
+                }
 
                 if (res instanceof HttpResponse && res.body.success && res.url.endsWith('signup')) {
                     this.toastr.success(res.body.message, "Success!");

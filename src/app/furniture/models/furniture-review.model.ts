@@ -1,6 +1,6 @@
 export class FurnitureReviewModel {
     constructor(
-        public userComment: string,
+        public comment: string,
         public rating: number
     ) { }
 } 

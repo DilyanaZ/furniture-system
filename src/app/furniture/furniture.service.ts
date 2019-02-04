@@ -43,5 +43,8 @@ export class FurnitureService {
     getFurnitureReview(id:string){
         return this.http.get<FurnitureReviewModel[]>("http://localhost:5000/furniture/details/" + id + "/reviews");
     }
+    like(id:string, currentUser: Object){
+        return this.http.post("http://localhost:5000/furniture/details/" + id + "/like", JSON.stringify(currentUser));
+    }
 
 }
