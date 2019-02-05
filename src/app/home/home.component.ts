@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
     if (currentUser) {
        this.username = JSON.parse(localStorage.getItem('currentUser')).username;
     }
-
   }
 
 }

@@ -1,22 +1,30 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row space-top">
         <div class="col-md-12">
-            <h1>Profile Page</h1>
+            <h1 class="bg-white p-1">Profile Page</h1>
             <p>Listing your furniture.</p>
         </div>
     </div>
     <div class="row space-top">
-        <div *ngFor="let f of furnitures | async" class="col-md-4">
-            <div class="card text-white bg-primary">
+        <div *ngFor="let f of furnitures | async | paginate: {
+            id: 'allFurniture',
+            itemsPerPage: pageSize,
+            currentPage: currentPage
+        }" class="col-md-4">
+            <div class="card text-white bg-info">
                 <div class="card-body">
                     <blockquote class="card-blockquote">
                         <img src="{{f.image}}" />
-                        <p>{{f.description}}</p>
-                        <footer>Someone famous in
-                            <cite title="Source Title">{{f.year}}</cite>
+                        <p class="text-left text-center">{{f.make}}</p>
+                        <p class="text-left text-center">{{f.model}}</p>
+                        <footer>
+                            <cite title="Source Title"> Produced in {{f.year}}</cite>
                         </footer>
                         <div class="pull-right">
-                            <a routerLink="/furniture/details/{{f.id}}" class="btn btn-info">Details</a>
+                            <a routerLink="/furniture/details/{{f.id}}" class="btn btn-primary">Details</a>
+                        </div>
+                        <br>
+                        <div class="pull-left">
                             <a (click)="deleteItem(f.id)" class="btn btn-danger">Delete Item</a>
                         </div>
                     </blockquote>
@@ -24,3 +32,8 @@
             </div>
         </div>
     </div>
+    <br>
+    <pagination-controls id="allFurniture" (pageChange)="changePage($event)" maxSize="9" directionLinks="true" autoHide="true" previousLabel="Previos" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
+
+    </pagination-controls>
+</div>

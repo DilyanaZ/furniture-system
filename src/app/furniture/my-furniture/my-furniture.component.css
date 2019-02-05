@@ -1,4 +1,32 @@
-blockquote>img {
-    width: 100px;
-    height: 100px;
+img {
+    width: 160px;
+    height: 120px;
+}
+
+div.container-fluid {
+    width: 100%;
+    background-color: rgb(190, 227, 250);
+    margin: 0 auto;
+}
+
+p {
+    color: gold;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+}
+
+div>p {
+    color: rgb(245, 189, 4);
+    font-size: 1.8em;
+    text-shadow: 3px 3px 3px rgb(50, 22, 126);
+}
+
+h1 {
+    text-shadow: 3px 3px 3px rgb(50, 22, 126);
+}
+
+#allFurniture {
+    margin-top: 10px;
+    text-align: center;
 }

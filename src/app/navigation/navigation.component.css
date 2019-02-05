@@ -1,0 +1,13 @@
+ul {
+    width: 100%;
+}
+
+li#logout {
+    float: right;
+    margin-left: 400px;
+    margin-right: 0;
+}
+
+li#logout:hover {
+    background-color: lightcoral;
+}

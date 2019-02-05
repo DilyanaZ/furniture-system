@@ -1,13 +1,13 @@
 <div id="main">
     <h1>
-        Hello {{username}} !
+        Hello {{username}} !This is our furniture page!
     </h1>
     <div *ngIf="!username">
-        <p>This is our landing page, if you want to see our furniture, you must <a routerLink="/signin">login.</a></p>
+        <p>This is our landing page, if you want to see our furniture, you must <a routerLink="/signin">  Login.</a></p>
     </div>
 </div>
 <div *ngIf="username" id="search-div" class="content badge">
-    <div [hidden]="isSearched">
+    <div>
         <h2>Find a furniture</h2>
         <form #searchForm="ngForm" (submit)="searchFurniture(searchForm.value.search)">
             <h3>Search for a furniture using the form below:</h3>
@@ -17,14 +17,7 @@
         </form>
     </div>
 </div>
-<div *ngIf="isSearched" class="row space-top">
-    <!-- <div class="container">
-        <div class="panel-body" *ngIf="isSearched">
-            <div class="col-md-4">
-                <p>{{searchedFurnitures | json}}</p>
-            </div>
-        </div>
-    </div> -->
+<div class="row space-top">
     <div *ngFor="let f of searchedFurnitures" class="col-md-4">
         <div class="card text-white bg-info">
             <div class="card-body bg-info">
