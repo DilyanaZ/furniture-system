@@ -11,17 +11,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  username : string;
+  username: string;
+  email: string;
   searchedFurnitures: any;
   isSearched: boolean;
+  statistic: Object;
+  isShown: boolean = false;
 
 
-  constructor(private router : Router,
+  constructor(private router: Router,
     private authService: AuthService,
-    private furnitureServise : FurnitureService
-    ) { }
+    private furnitureServise: FurnitureService
+  ) { }
 
-    searchFurniture(searchedInput){
+  searchFurniture(searchedInput) {
     console.log(searchedInput);
     this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
       this.searchedFurnitures = res;
@@ -34,8 +37,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser) {
-       this.username = JSON.parse(localStorage.getItem('currentUser')).username;
+      this.username = JSON.parse(localStorage.getItem('currentUser')).username;
+      this.email = JSON.parse(localStorage.getItem('currentUser')).email;
     }
+    this.furnitureServise.getStatistic().subscribe(data => {
+      this.statistic = data;
+    });
+  }
+
+  showStatistic() {
+    this.isShown = !this.isShown;
   }
 
 }

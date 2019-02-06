@@ -2,11 +2,19 @@
     <h1>
         Hello {{username}} !This is our furniture page!
     </h1>
+    <div class="row space-top">
+        <div id="stats" class="text-center">
+            <button class="btn-light h4" (click)="showStatistic()">Show  statistic</button>
+            <div class="row" *ngIf="isShown">
+                <h3>{{statistic | json}}</h3>
+            </div>
+        </div>
+    </div>
     <div *ngIf="!username">
-        <p>This is our landing page, if you want to see our furniture, you must <a routerLink="/signin">  Login.</a></p>
+        <p>This is our landing page, if you want to see our furniture, you must <a routerLink="/signin">  Log in.</a></p>
     </div>
 </div>
-<div *ngIf="username" id="search-div" class="content badge">
+<div *ngIf="!!authService.isAuthenticated()" id="search-div" class="content badge">
     <div>
         <h2>Find a furniture</h2>
         <form #searchForm="ngForm" (submit)="searchFurniture(searchForm.value.search)">

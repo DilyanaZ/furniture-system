@@ -19,10 +19,7 @@ h1 {
 
 h2,
 h3 {
-    font-style: normal;
-    text-transform: none;
-    color: darkslateblue;
-    text-shadow: 3px 3px 3px rgb(185, 164, 243);
+    text-shadow: 3px 3px 3px rgb(50, 22, 126);
 }
 
 input#search {
@@ -48,6 +45,12 @@ blockquote>footer {
 }
 
 p {
-    color: rgb(245, 189, 4);
-    font-size: 1.8em;
+    color: chocolate;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+}
+
+#stats {
+    margin: 0 auto;
 }

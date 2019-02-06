@@ -8,9 +8,10 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  model : SignInModel;
+  model: SignInModel;
 
-  constructor(private authService : AuthService) {
+
+  constructor(private authService: AuthService) {
     this.model = new SignInModel("", "");
   }
 
@@ -21,6 +22,9 @@ export class SigninComponent implements OnInit {
     this.authService
       .login(this.model)
       .subscribe();
+      localStorage.setItem('email', this.model.email);
   }
+
+  
 
 }

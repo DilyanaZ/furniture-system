@@ -17,16 +17,16 @@
                         <img src="{{f.image}}" />
                         <p class="text-left text-center">{{f.make}}</p>
                         <p class="text-left text-center">{{f.model}}</p>
-                        <footer>
-                            <cite title="Source Title"> Produced in {{f.year}}</cite>
-                        </footer>
                         <div class="pull-right">
                             <a routerLink="/furniture/details/{{f.id}}" class="btn btn-primary">Details</a>
                         </div>
                         <br>
                         <div class="pull-left">
-                            <a (click)="deleteItem(f.id)" class="btn btn-danger">Delete Item</a>
+                            <a id="delete" (click)="deleteItem(f.id)" class="btn btn-primary btn-outline-warning">Delete Item</a>
                         </div>
+                        <footer>
+                            <cite title="Source Title"> Produced in {{f.year}}</cite>
+                        </footer>
                     </blockquote>
                 </div>
             </div>

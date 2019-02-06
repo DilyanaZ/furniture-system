@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="row space-top">
-        <div *ngFor="let f of furnitures | async | paginate: {
+        <div *ngFor="let f of furnitures | paginate: {
             id: 'allFurniture',
             itemsPerPage: pageSize,
             currentPage: currentPage
@@ -17,13 +17,15 @@
                         <img src="{{f.image}}" />
                         <p class="text-left text-center">{{f.make}}</p>
                         <p class="text-left text-center">{{f.model}}</p>
+                        <!-- <p class="text-left text-center">{{f.createdBy}}</p> -->
+                        <p class="text-left text-center">Likes:{{f.likes.length}}</p>
+                        <!-- <p> <button type="submit" class=" pull-left btn btn-light" (click)="like()" [hidden]="">Like</button></p> -->
+                        <div *ngIf="isLogged" class="pull-right">
+                            <a routerLink="../details/{{f.id}}" class="btn btn-dark">Details</a>
+                        </div>
                         <footer>
                             <cite title="Source Title">  Produced in {{f.year}}</cite>
                         </footer>
-                        <br>
-                        <div class="pull-right">
-                            <a routerLink="../details/{{f.id}}" class="btn btn-dark">Details</a>
-                        </div>
                     </blockquote>
                 </div>
             </div>

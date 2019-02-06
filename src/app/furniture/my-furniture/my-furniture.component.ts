@@ -26,9 +26,13 @@ export class MyFurnitureComponent implements OnInit {
 
   deleteItem(id: string) {
     console.log(id);
-    this.furnitureServise.deleteFurniture(id).subscribe(() => {
-      this.router.navigate(['/furniture/all']);
+    this.furnitureServise.deleteFurniture(id).subscribe(data => {
+      alert(data['message']);
     });
+    // this.furnitureServise.deleteFurniture(id).subscribe(() => {
+    //   this.router.navigate(['/furniture/my']);
+    // });
+    this.router.navigate(['/furniture/all']);
   }
 
   changePage(page){

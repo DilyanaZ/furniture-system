@@ -10,10 +10,9 @@ div.container-fluid {
 }
 
 p {
-    color: gold;
+    color: rgb(245, 189, 4);
     font-weight: bold;
     font-size: 18px;
-    padding: 10px;
 }
 
 div>p {
@@ -24,4 +23,16 @@ div>p {
 
 h1 {
     text-shadow: 3px 3px 3px rgb(50, 22, 126);
+}
+
+blockquote {
+    margin-bottom: 0px;
+}
+
+div.card-body {
+    padding-bottom: 0px;
+}
+
+footer {
+    margin-top: 3px;
 }

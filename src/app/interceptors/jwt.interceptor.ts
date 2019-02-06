@@ -53,7 +53,7 @@ export class JwtInterceptor implements HttpInterceptor {
                     this.toastr.success(res.body.message, "Success!");
                     console.log(res.body);
                 }
-                if (res instanceof HttpResponse && res.body.success && res.url.endsWith('delete')) {
+                if (res instanceof HttpResponse && res.body.success && res.url.endsWith('furniture/delete')) {
                     this.toastr.success(res.body.message, "Success!");
                     console.log(res.body);
                 }

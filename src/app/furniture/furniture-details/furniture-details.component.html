@@ -24,7 +24,8 @@
                 <p><b>Description: </b>{{f.description}}</p>
                 <p><b>Price: </b>{{f.price}}</p>
                 <p><b>Material: </b>{{f.material}}</p>
-                <p> <button type="submit" class="btn btn-info" (click)="like()" [disabled]="">Like</button></p>
+                <br>
+                <p> <button type="submit" class=" pull-left btn btn-light" (click)="like(f.id)" [hidden]="">Like</button></p>
             </div>
         </div>
     </div>
