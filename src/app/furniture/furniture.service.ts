@@ -51,5 +51,9 @@ export class FurnitureService {
     like(id:string, body: string){
         return this.http.post("http://localhost:5000/furniture/details/" + id + "/like", body);
     }
+    // ------------------------------------------------------------------------------------------------------
+    editFurniture(id:string, body: FurnitureModel){
+        return this.http.put(detailsUrl+id, body);
+    }
 
 }

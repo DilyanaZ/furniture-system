@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FurnitureService } from '../furniture.service';
 import { FurnitureModel } from '../models/furniture.model';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/authentication/auth.service';
 import { Furniture } from '../models/furniture';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,52 +12,64 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './all-furniture.component.html',
   styleUrls: ['./all-furniture.component.css']
 })
-export class AllFurnitureComponent implements OnInit {
-
+export class AllFurnitureComponent implements OnInit, OnDestroy {
+  //furnitures: Observable<Furniture[]>;
   furnitures: Array<Furniture>;
-  furniture: Furniture;
-  furnitureUsersEmails: Array<string>;
-  furnitureUsers: Array<Object>;
+  furnitures$: Subscription;
+  //furniture: Furniture;
   id: string;
 
   pageSize: number = 3;
   currentPage: number = 1;
-
+  disabled: boolean;
   isLogged: boolean;
-  
-  user = {
-    email: "",
-    isLiked: false
-  };
-  visitedtUser = {
-    furnitureId: -1,
-    email: "",
-    isLiked: false
-  };
+  //isLiked: boolean;
+  user: string;
 
-  constructor(private furnitureServise: FurnitureService,
+  constructor(
+    private furnitureService: FurnitureService,
     private route: ActivatedRoute,
+    private router: Router,
     private authService: AuthService) {
     this.isLogged = this.authService.isAuthenticated();
     this.id = this.route.snapshot.params['id'];
-    this.furnitureUsersEmails = [];
   }
 
   ngOnInit() {
-    this.furnitureServise.getAllFurniture().subscribe(res => {
+    //this.furnitures = this.furnitureService.getAllFurniture();
+    this.user = localStorage.getItem('email');
+    this.furnitures$ = this.furnitureService.getAllFurniture().subscribe(res => {
       this.furnitures = res;
       console.log(this.furnitures);
-      //console.log(this.furnitureUsersEmails);
+      this.furnitures.forEach((furniture, index) => {
+        if(this.furnitures[index]['likes'].indexOf(this.user) !== -1){
+          this.disabled = true;
+        }
+      });
     });
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
-    if (this.user) {
-      this.user.email = JSON.parse(localStorage.getItem('currentUser')).email;
-    }
+  }
+   
+  ngOnDestroy(){
+    this.furnitures$.unsubscribe();
   }
 
   changePage(page) {
     this.currentPage = page;
   }
-  
+
+  like(id: string) {
+    this.furnitureService.like(id, this.user).subscribe(res => {
+      console.log(res);
+      this.router.navigate(['/furniture/all']);
+    });
+        // if (this.furniture.likes.indexOf(this.user) == -1) {
+    //   this.isLiked = false;
+    //   console.log(this.furniture.likes, this.isLiked);
+    // } else {
+    //   this.isLiked = true;
+    // }
+    window.location.reload();
+  }
+
 
 }

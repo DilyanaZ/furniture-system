@@ -9,16 +9,16 @@ div.container-fluid {
     margin: 0 auto;
 }
 
+h2 {
+    color: rgb(245, 189, 4);
+    font-size: 1.8em;
+    text-shadow: 3px 3px 3px rgb(50, 22, 126);
+}
+
 p {
     color: rgb(245, 189, 4);
     font-weight: bold;
     font-size: 18px;
-}
-
-div>p {
-    color: rgb(245, 189, 4);
-    font-size: 1.8em;
-    text-shadow: 3px 3px 3px rgb(50, 22, 126);
 }
 
 h1 {
@@ -27,6 +27,11 @@ h1 {
 
 blockquote {
     margin-bottom: 0px;
+    color: white;
+}
+
+blockquote>p {
+    color: white;
 }
 
 div.card-body {
@@ -35,4 +40,19 @@ div.card-body {
 
 footer {
     margin-top: 3px;
+}
+
+div.container {
+    background-color: rgb(173, 204, 233);
+    padding: 30px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+form {
+    width: 80%;
+    background-color: blanchedalmond;
+    padding: 30px;
+    margin: 0 auto;
+    border-radius: 15px;
 }

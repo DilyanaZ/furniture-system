@@ -28,3 +28,18 @@ div>p {
 h1 {
     text-shadow: 3px 3px 3px rgb(50, 22, 126);
 }
+
+div.container {
+    background-color: rgb(173, 204, 233);
+    padding: 30px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+form {
+    width: 80%;
+    background-color: blanchedalmond;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 15px;
+}

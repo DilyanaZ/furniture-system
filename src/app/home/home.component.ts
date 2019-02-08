@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../authentication/auth.service';
 import { FurnitureService } from '../furniture/furniture.service';
-import { FurnitureModel } from '../furniture/models/furniture.model';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { map } from 'rxjs/operators';
+import { Form } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
@@ -12,37 +15,43 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   username: string;
-  email: string;
   searchedFurnitures: any;
   isSearched: boolean;
   statistic: Object;
   isShown: boolean = false;
+  urlParams: string;
+  
 
-
-  constructor(private router: Router,
+  constructor(
+    private route: ActivatedRoute,
     private authService: AuthService,
-    private furnitureServise: FurnitureService
+    private furnitureServise: FurnitureService,
+    private router: Router,
+    private location: Location
   ) { }
 
   searchFurniture(searchedInput) {
     console.log(searchedInput);
-    this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
-      this.searchedFurnitures = res;
-      this.isSearched = true;
-    });
-    console.log(this.searchedFurnitures);
-    this.isSearched = true;
+    console.log(this.router.url);
+  
+      this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
+        this.searchedFurnitures = res;
+        this.isSearched = true;
+      });
+  
+    this.location.replaceState(`/home/?params=${searchedInput}`);
   }
 
   ngOnInit() {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser) {
       this.username = JSON.parse(localStorage.getItem('currentUser')).username;
-      this.email = JSON.parse(localStorage.getItem('currentUser')).email;
     }
     this.furnitureServise.getStatistic().subscribe(data => {
       this.statistic = data;
     });
+
+    this.urlParams = this.route.snapshot.queryParams["params"];
   }
 
   showStatistic() {

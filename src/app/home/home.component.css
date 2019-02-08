@@ -19,7 +19,7 @@ h1 {
 
 h2,
 h3 {
-    text-shadow: 3px 3px 3px rgb(50, 22, 126);
+    text-shadow: 3px 3px 3px rgb(77, 70, 94);
 }
 
 input#search {
@@ -45,7 +45,7 @@ blockquote>footer {
 }
 
 p {
-    color: chocolate;
+    color: white;
     font-weight: bold;
     font-size: 18px;
     padding: 10px;

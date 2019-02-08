@@ -18,8 +18,8 @@ const routes : Routes = [
   { path: 'signup', component: SignupComponent },
    {path: 'furniture', children: [
      {path: 'all', component: AllFurnitureComponent },
-     {path: 'details/:id', component: FurnitureDetailsComponent}, 
-     {path:'my', component:MyFurnitureComponent},
+     {path: 'details/:id', component: FurnitureDetailsComponent, canActivate:[AuthGuard]}, 
+     {path:'my', component:MyFurnitureComponent, canActivate:[AuthGuard]},
      {path:'create', component:CreateFurnitureComponent, canActivate:[AuthGuard]}
      ]
    }

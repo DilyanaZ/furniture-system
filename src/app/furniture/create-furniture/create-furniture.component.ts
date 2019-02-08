@@ -12,7 +12,6 @@ import { FurnitureService } from '../furniture.service'
 export class CreateFurnitureComponent implements OnInit {
   bindingModel: CreateFurnitureModel;
 
-
   constructor(private furnitureService: FurnitureService) {
     this.bindingModel = new CreateFurnitureModel("", "", 1950, "", 1, "");
   }
@@ -23,6 +22,9 @@ export class CreateFurnitureComponent implements OnInit {
   create() {
     this.furnitureService.createFurniture(this.bindingModel).subscribe();
     console.log(this.bindingModel);
-    }
-
+  }
+  // onFileSelected(event){
+  //     console.log(event);
+  //     //console.log(this.bindingModel.imageFile);
+  // }  
 }

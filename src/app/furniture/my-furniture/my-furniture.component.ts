@@ -32,7 +32,8 @@ export class MyFurnitureComponent implements OnInit {
     // this.furnitureServise.deleteFurniture(id).subscribe(() => {
     //   this.router.navigate(['/furniture/my']);
     // });
-    this.router.navigate(['/furniture/all']);
+    window.location.reload();
+    //this.router.navigate(['/furniture/all']);
   }
 
   changePage(page){

@@ -10,7 +10,7 @@ div.container-fluid {
 }
 
 p {
-    color: gold;
+    color: white;
     font-weight: bold;
     font-size: 18px;
     padding: 10px;
@@ -29,8 +29,4 @@ h1 {
 #allFurniture {
     margin-top: 10px;
     text-align: center;
-}
-
-a#delete {
-    width: 120px;
 }
