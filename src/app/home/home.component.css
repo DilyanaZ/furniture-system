@@ -14,12 +14,12 @@ h1 {
     height: 200px;
     padding: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 5px 5px 8px rgb(34, 51, 82);
+    text-shadow: 3px 3px 5px rgb(34, 51, 82);
 }
 
 h2,
 h3 {
-    text-shadow: 3px 3px 3px rgb(77, 70, 94);
+    text-shadow: 2px 2px 3px rgb(77, 70, 94);
 }
 
 input#search {
@@ -35,6 +35,7 @@ input#search {
 img {
     width: 140px;
     height: 140px;
+    margin-bottom: 5px;
 }
 
 blockquote>img,

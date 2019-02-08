@@ -10,6 +10,7 @@ import { FurnitureDetailsComponent } from './furniture/furniture-details/furnitu
 import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.component';
 import { CreateFurnitureComponent } from './furniture/create-furniture/create-furniture.component';
 import { AuthGuard } from './authentication/guards/auth.guard';
+import { EditFurnitureComponent } from './furniture/edit-furniture/edit-furniture.component';
 
 const routes : Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -20,7 +21,8 @@ const routes : Routes = [
      {path: 'all', component: AllFurnitureComponent },
      {path: 'details/:id', component: FurnitureDetailsComponent, canActivate:[AuthGuard]}, 
      {path:'my', component:MyFurnitureComponent, canActivate:[AuthGuard]},
-     {path:'create', component:CreateFurnitureComponent, canActivate:[AuthGuard]}
+     {path:'create', component:CreateFurnitureComponent, canActivate:[AuthGuard]},
+     {path:'edit/:id', component:EditFurnitureComponent, canActivate: [AuthGuard]}
      ]
    }
 ]

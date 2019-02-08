@@ -1,13 +1,16 @@
+<p>
+    edit-furniture works!
+</p>
 <!-- {{bindingModel | json}} -->
-<div class="container-fluid">
+<div *ngIf="bindingModel" class="container-fluid">
     <div class="row space-top">
         <div class="col-md-12">
-            <h1 class="bg-white p-1">Create New Furniture</h1>
+            <h1 class="bg-white p-1">Edit Existing Furniture</h1>
             <p>Please fill all fields.</p>
         </div>
     </div>
     <div class="container">
-        <form #furnitureForm="ngForm" (ngSubmit)="create()">
+        <form #furnitureForm="ngForm" (ngSubmit)="edit()">
             <div class="row space-top">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -43,16 +46,11 @@
                         <input class="form-control" id="new-image" type="text" name="image" [(ngModel)]="bindingModel.image" #image="ngModel" required>
                         <div *ngIf="image.invalid && image.dirty" class="alert alert-danger">Image URL is required</div>
                     </div>
-                    <!-- <div class="form-group">
-                        <label class="form-control-label" for="new-image">Image File</label>
-                        <input class="form-control form-control-file" type="file" (change)="onFileSelected($event)" name="image" [(ngModel)]="bindingModel.image" #image="ngModel" required>
-                        <input class="form-control form-control-file" type="file" (change)="onFileSelected($event)" name="imageFile" [(ngModel)]="bindingModel.imageFile" #file="ngModel">
-                    </div> -->
-                    <div class="form-group">
+                    <!-- <div *ngIf="bindingModel.material" class="form-group">
                         <label class="form-control-label" for="new-material">Material (optional)</label>
                         <input class="form-control" id="new-material" type="text" name="material" [(ngModel)]="bindingModel.material" #material="ngModel">
-                    </div>
-                    <input type="submit" [disabled]="furnitureForm.form.invalid" class="btn btn-primary" value="Create" />
+                    </div> -->
+                    <input type="submit" [disabled]="furnitureForm.form.invalid" class="btn btn-primary" value="Edit" />
 
                 </div>
             </div>

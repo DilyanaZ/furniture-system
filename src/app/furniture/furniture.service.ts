@@ -12,6 +12,8 @@ const myFurnitureUrl = "http://localhost:5000/furniture/mine";
 const deleteUrl = "http://localhost:5000/furniture/delete/";
 const searchUrl = "http://localhost:5000/furniture/all?search=";
 const statsUrl = "http://localhost:5000/stats";
+const getFurnitureByIdUrl = "http://localhost:5000/furniture/";
+const editFurnitureUrl = "http://localhost:5000/furniture/edit";
 
 @Injectable({
     providedIn: 'root'
@@ -52,8 +54,11 @@ export class FurnitureService {
         return this.http.post("http://localhost:5000/furniture/details/" + id + "/like", body);
     }
     // ------------------------------------------------------------------------------------------------------
+    getFurnitureById(id:string){
+        return this.http.get<FurnitureModel>(getFurnitureByIdUrl + id);
+    }
     editFurniture(id:string, body: FurnitureModel){
-        return this.http.put(detailsUrl+id, body);
+        return this.http.put(editFurnitureUrl+id, body);
     }
 
 }

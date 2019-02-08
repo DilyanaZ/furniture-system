@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   statistic: Object;
   isShown: boolean = false;
   urlParams: string;
-  
+
 
   constructor(
     private route: ActivatedRoute,
@@ -33,13 +33,18 @@ export class HomeComponent implements OnInit {
   searchFurniture(searchedInput) {
     console.log(searchedInput);
     console.log(this.router.url);
-  
-      this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
-        this.searchedFurnitures = res;
-        this.isSearched = true;
-      });
-  
-    this.location.replaceState(`/home/?params=${searchedInput}`);
+    // if (window.location.search.endsWith(this.urlParams)) {
+    //   this.furnitureServise.findFurniture(this.urlParams).subscribe(res => {
+    //     this.searchedFurnitures = res;
+    //   });
+    // }
+
+    this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
+      this.searchedFurnitures = res;
+      this.isSearched = true;
+    });
+
+    this.location.replaceState(`/home/?search=${searchedInput}`);
   }
 
   ngOnInit() {
@@ -50,10 +55,8 @@ export class HomeComponent implements OnInit {
     this.furnitureServise.getStatistic().subscribe(data => {
       this.statistic = data;
     });
-
-    this.urlParams = this.route.snapshot.queryParams["params"];
   }
-
+ 
   showStatistic() {
     this.isShown = !this.isShown;
   }

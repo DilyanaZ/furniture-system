@@ -20,6 +20,7 @@ import { CreateFurnitureComponent } from './furniture/create-furniture/create-fu
 import { AllFurnitureComponent } from './furniture/all-furniture/all-furniture.component';
 import { FurnitureDetailsComponent } from './furniture/furniture-details/furniture-details.component';
 import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.component';
+import { EditFurnitureComponent } from './furniture/edit-furniture/edit-furniture.component';
  
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.comp
     CreateFurnitureComponent,
     AllFurnitureComponent,
     FurnitureDetailsComponent,
-    MyFurnitureComponent, 
+    MyFurnitureComponent,
+    EditFurnitureComponent, 
     
   ],
   imports: [
