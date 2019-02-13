@@ -20,9 +20,9 @@
                         <p class="text-left text-center">{{f.description}}</p>
                         <p class="text-left text-center">Likes:{{f.likes.length}}</p>
 
-                        <p> <button *ngIf="!disabled" type="submit" class=" pull-left btn btn-light" (click)="like(f.id)">Like</button></p>
+                        <p> <button *ngIf="!f.likes.includes(user)" type="submit" class=" pull-left btn btn-light" (click)="like(f.id)">Like</button></p>
                         <div *ngIf="isLogged" class="pull-right">
-                            <a routerLink="../details/{{f.id}}" class="btn btn-dark">Details</a>
+                            <a routerLink="../details/{{f.id}}" class="btn">Details</a>
                         </div>
                         <footer>
                             <cite title="Source Title">  Produced in {{f.year}}</cite>

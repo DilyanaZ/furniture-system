@@ -1,35 +1,83 @@
-body {
-    background-color: blanchedalmond;
+img {
+    width: 160px;
+    height: 120px;
+    margin-bottom: 5px;
 }
 
-div {
-    background-color: blanchedalmond;
+div.container-fluid {
+    width: 100%;
+    background-color: rgb(190, 227, 250);
+    margin: 0 auto;
+}
+
+p {
+    color: rgb(245, 189, 4);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+h1,
+h2,
+h4 {
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(7, 61, 116);
+    text-shadow: 3px 3px 3px rgb(138, 137, 141);
+}
+
+h3 {
+    color: #036096;
+    padding-top: 5px;
+    text-shadow: 1px 1px 2px rgb(153, 151, 156);
+}
+
+blockquote {
+    margin-bottom: 0px;
+    color: white;
+}
+
+blockquote>p {
+    color: white;
+}
+
+div.card-body {
+    padding-bottom: 0px;
+}
+
+footer {
+    margin-top: 3px;
+}
+
+div.container {
+    background-color: rgb(173, 204, 233);
+    padding: 30px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+form {
+    /* width: 80%; */
+    background-color: rgb(223, 205, 179);
+    padding: 30px;
+    margin: 0 auto;
+    border-radius: 15px;
 }
 
 #main {
     background-color: beige;
 }
 
-h1 {
-    height: 200px;
-    padding: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 3px 3px 5px rgb(34, 51, 82);
-}
-
-h2,
-h3 {
-    text-shadow: 2px 2px 3px rgb(77, 70, 94);
-}
-
 input#search {
     border-color: black;
     border-radius: 10px;
+    background-color: white;
+    color: #0277bd;
 }
 
 #search-div {
     margin: 20px auto;
     padding: 20px;
+    text-align: center;
 }
 
 img {
@@ -45,6 +93,10 @@ blockquote>footer {
     padding-bottom: 15px;
 }
 
+#search {
+    border-color: black;
+}
+
 p {
     color: white;
     font-weight: bold;
@@ -54,4 +106,41 @@ p {
 
 #stats {
     margin: 0 auto;
+}
+
+button {
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #0277bd;
+    color: white;
+}
+
+#isShown {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+#landing {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    color: white;
+    text-shadow: 3px 3px 3px rgb(43, 43, 44);
+}
+
+a.btn {
+    border-radius: 10px;
+    background-color: #0277bd;
+    color: white;
+}
+
+div.card-body {
+    padding-bottom: 0px;
+    background-color: rgb(156, 202, 245);
 }

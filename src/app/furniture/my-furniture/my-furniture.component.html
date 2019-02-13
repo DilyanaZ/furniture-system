@@ -11,22 +11,24 @@
             itemsPerPage: pageSize,
             currentPage: currentPage
         }" class="col-md-4">
-            <div class="card text-white bg-info">
+            <div class="card">
                 <div class="card-body">
                     <blockquote class="card-blockquote">
                         <img src="{{f.image}}" />
-                        <p class="text-left text-center">{{f.make}}</p>
                         <p class="text-left text-center">{{f.model}}</p>
-                        <div class="pull-right">
-                            <a routerLink="/furniture/details/{{f.id}}" class="btn btn-light text-dark">Details</a>
+                        <p class="text-left text-center">{{f.description}}</p>
+                        <p class="text-left text-center">Likes: {{f.likes.length}}</p>
+                        <div id="buttons">
+                            <a routerLink="/furniture/details/{{f.id}}" class="btn pull-right shadow">Details</a>
+                            <a routerLink="/furniture/edit/{{f.id}}" class="btn pull-left shadow">Edit</a>
                         </div>
                         <br>
-                        <div class="pull-left">
-                            <a routerLink="/furniture/edit/{{f.id}}" class="btn btn-light text-dark">Edit</a>
-                        </div>
+                        <!-- <div class="pull-left">
+                            <a routerLink="/furniture/edit/{{f.id}}" class="btn">Edit</a>
+                        </div> -->
                         <br>
                         <div class="pull-left">
-                            <a id="delete" (click)="deleteItem(f.id)" class="btn btn-danger">Delete Item</a>
+                            <a id="delete" (click)="deleteItem(f.id)" class="btn shadow">Delete Item</a>
                         </div>
                         <footer>
                             <cite title="Source Title"> Produced in {{f.year}}</cite>

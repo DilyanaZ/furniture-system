@@ -35,16 +35,12 @@ blockquote>p {
     color: white;
 }
 
-div.card-body {
-    padding-bottom: 0px;
-}
-
 footer {
     margin-top: 3px;
 }
 
 div.container {
-    background-color: rgb(173, 204, 233);
+    background-color: rgb(193, 218, 241);
     padding: 30px;
     margin: 0 auto;
     border-radius: 15px;
@@ -56,4 +52,26 @@ form {
     padding: 30px;
     margin: 0 auto;
     border-radius: 15px;
+}
+
+div.card {
+    background-color: rgb(212, 228, 243);
+}
+
+div.card-body {
+    padding-bottom: 0px;
+    background-color: rgb(159, 193, 224);
+}
+
+a.btn {
+    border-radius: 10px;
+    background-color: #0277bd;
+    color: white;
+}
+
+button {
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #0277bd;
+    color: white;
 }

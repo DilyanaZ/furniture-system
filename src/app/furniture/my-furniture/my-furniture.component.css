@@ -30,3 +30,41 @@ h1 {
     margin-top: 10px;
     text-align: center;
 }
+
+a.btn {
+    border-radius: 10px;
+    background-color: #0277bd;
+    color: white;
+}
+
+div.card {
+    background-color: rgb(212, 228, 243);
+}
+
+div.card-body {
+    padding-bottom: 0px;
+    background-color: rgb(171, 200, 228);
+}
+
+div#buttons {
+    border-radius: 10px;
+}
+
+a.btn {
+    border-radius: 10px;
+    background-color: #0277bd;
+    color: white;
+    margin-right: 10px;
+}
+
+a#delete {
+    border-radius: 10px;
+    background-color: #d3a3b5;
+    color: white;
+    margin-bottom: 10px;
+    border: 1px solid #c7366e;
+}
+
+a#delete:hover {
+    background-color: #f35894;
+}

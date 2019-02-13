@@ -15,7 +15,6 @@ export class FurnitureDetailsComponent implements OnInit {
   furniture: Observable<FurnitureModel>;
   reviewResult: Observable<FurnitureReviewModel[]>;
   id: string;
-
   furnitureReview: FurnitureReviewModel;
   ratings: number[];
   isOpinionsShown: boolean = false;
@@ -25,9 +24,9 @@ export class FurnitureDetailsComponent implements OnInit {
     private furnitureService: FurnitureService,
     private location: Location,
     private router: Router) {
-    this.id = this.route.snapshot.params['id'];
-    this.furnitureReview = new FurnitureReviewModel("", 1);
-    this.ratings = [1, 2, 3, 4, 5];
+      this.id = this.route.snapshot.params['id'];
+      this.furnitureReview = new FurnitureReviewModel("", 1);
+      this.ratings = [1, 2, 3, 4, 5];
   }
 
   ngOnInit() {

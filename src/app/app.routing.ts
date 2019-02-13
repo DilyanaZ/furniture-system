@@ -14,7 +14,7 @@ import { EditFurnitureComponent } from './furniture/edit-furniture/edit-furnitur
 
 const routes : Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, data: { shouldReuse: true } },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
    {path: 'furniture', children: [

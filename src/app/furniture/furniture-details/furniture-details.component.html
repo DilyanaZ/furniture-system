@@ -13,17 +13,17 @@
                             <img src="{{f.image}}" />
                         </blockquote>
                         <br>
-                        <button type="submit" class="btn btn-info" (click)="getOpinions()">Opinions</button>
+                        <button type="submit" class="btn" (click)="getOpinions()">Opinions</button>
                     </div>
                 </div>
             </div>
-            <div id="info" class="col-md-6">
-                <p><b>Make: </b>{{f.make}}</p>
-                <p><b>Model: </b>{{f.model}}</p>
-                <p><b>Year: </b>{{f.year}}</p>
-                <p><b>Description: </b>{{f.description}}</p>
-                <p><b>Price: </b>{{f.price}}</p>
-                <p><b>Material: </b>{{f.material}}</p>
+            <div id="info" class="col-md-6 text-left">
+                <p><b class="font-weight-bold">Make: </b>{{f.make}}</p>
+                <p><b class="font-weight-bold">Model: </b>{{f.model}}</p>
+                <p><b class="font-weight-bold">Year: </b>{{f.year}}</p>
+                <p><b class="font-weight-bold">Description: </b>{{f.description}}</p>
+                <p><b class="font-weight-bold">Price: </b>{{f.price}}</p>
+                <p><b class="font-weight-bold">Material: </b>{{f.material}}</p>
                 <br>
             </div>
         </div>
@@ -31,7 +31,7 @@
 </div>
 
 <div *ngIf="isOpinionsShown && reviewResult" id="userReview" class="container row card space-top text-center">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <h3>The statisic for this product is: </h3>
         <ul>
             <li *ngFor="let res of reviewResult | async">
@@ -55,7 +55,7 @@
                 <option *ngFor="let rate of ratings"  [value]="rate">{{rate}}</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-info" [disabled]="reviewForm.form.invalid">Submit</button>
+        <button type="submit" class="btn" [disabled]="reviewForm.form.invalid">Submit</button>
     </form>
 </div>
 <br>

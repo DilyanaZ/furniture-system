@@ -21,7 +21,7 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
 
   pageSize: number = 3;
   currentPage: number = 1;
-  disabled: boolean;
+  disabled: boolean = false;
   isLogged: boolean;
   //isLiked: boolean;
   user: string;
@@ -32,24 +32,19 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
     private router: Router,
     private authService: AuthService) {
     this.isLogged = this.authService.isAuthenticated();
-    this.id = this.route.snapshot.params['id'];
+    
   }
 
   ngOnInit() {
-    //this.furnitures = this.furnitureService.getAllFurniture();
+    this.id = this.route.snapshot.params['id'];
     this.user = localStorage.getItem('email');
     this.furnitures$ = this.furnitureService.getAllFurniture().subscribe(res => {
       this.furnitures = res;
       console.log(this.furnitures);
-      this.furnitures.forEach((furniture, index) => {
-        if(this.furnitures[index]['likes'].indexOf(this.user) !== -1){
-          this.disabled = true;
-        }
-      });
-    });
+     });
   }
-   
-  ngOnDestroy(){
+
+  ngOnDestroy() {
     this.furnitures$.unsubscribe();
   }
 
@@ -58,18 +53,23 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
   }
 
   like(id: string) {
-    this.furnitureService.like(id, this.user).subscribe(res => {
-      console.log(res);
-      this.router.navigate(['/furniture/all']);
+    this.furnitureService.like(id, this.user).subscribe((res) => {
+      // console.log(res);
+      // this.furnitureService.getById(id).subscribe(res => {
+      //   console.log(res);
+      //   let currentFurniture = res;
+      //   if(currentFurniture['likes'].indexOf(this.user) >= 0){
+      //     this.disabled = true;
+      //   } else {
+      //     this.disabled = false;
+      //   }
+      // });
+     });
+    this.furnitureService.getAllFurniture().subscribe(res => {
+      this.furnitures = res;
     });
-        // if (this.furniture.likes.indexOf(this.user) == -1) {
-    //   this.isLiked = false;
-    //   console.log(this.furniture.likes, this.isLiked);
-    // } else {
-    //   this.isLiked = true;
-    // }
-    window.location.reload();
   }
+  
 
 
 }

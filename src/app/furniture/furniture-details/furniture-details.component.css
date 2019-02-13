@@ -17,13 +17,18 @@ h3 {
 }
 
 #info {
-    padding-top: 20px;
+    padding-left: 100px;
     color: black;
+}
+
+#info>p {
+    color: #0277bd;
+    font-size: 18px;
 }
 
 #sendReview {
     margin-top: 15px;
-    background-color: rgb(233, 193, 145);
+    background-color: rgb(179, 210, 240);
 }
 
 ul {
@@ -31,17 +36,17 @@ ul {
 }
 
 #userReview {
-    background-color: lightcyan;
+    background-color: rgb(119, 182, 245);
     margin: 50px auto;
     padding: 30px;
 }
 
 div.card-body {
-    background-color: rgb(226, 240, 240);
+    background-color: rgb(179, 210, 240);
 }
 
 div.container {
-    background-color: rgb(226, 240, 240);
+    background-color: rgb(179, 210, 240);
     padding: 15px;
     margin: 0 auto;
     border-radius: 15px;
@@ -49,12 +54,25 @@ div.container {
 
 form {
     width: 80%;
-    background-color: blanchedalmond;
+    background-color: #7986cb;
     padding: 30px;
     margin: 0 auto;
     border-radius: 15px;
+    color: white;
 }
 
 #image-holder {
     border-radius: 15px;
+}
+
+button.btn {
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #04639b;
+    color: white;
+}
+
+li {
+    color: white;
+    font-size: 18px;
 }

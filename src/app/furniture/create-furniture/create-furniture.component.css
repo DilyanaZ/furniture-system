@@ -43,3 +43,9 @@ form {
     margin: 0 auto;
     border-radius: 15px;
 }
+
+input.btn {
+    border-radius: 10px;
+    background-color: #0277bd;
+    color: white;
+}

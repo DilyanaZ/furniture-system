@@ -7,6 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing';
 import { CustomFormsModule } from 'ng2-validation';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { RouteReuseStrategy, ActivatedRouteSnapshot, DetachedRouteHandle } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -21,6 +22,7 @@ import { AllFurnitureComponent } from './furniture/all-furniture/all-furniture.c
 import { FurnitureDetailsComponent } from './furniture/furniture-details/furniture-details.component';
 import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.component';
 import { EditFurnitureComponent } from './furniture/edit-furniture/edit-furniture.component';
+import { CustomRouteReuseStategy } from './home/CustomRouteReuseStategy';
  
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { EditFurnitureComponent } from './furniture/edit-furniture/edit-furnitur
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
     multi:true
-    }
+    },
+    { provide: RouteReuseStrategy,
+      useClass: CustomRouteReuseStategy }
   ],
   bootstrap: [AppComponent]
 })

@@ -28,13 +28,10 @@ export class MyFurnitureComponent implements OnInit {
     console.log(id);
     this.furnitureServise.deleteFurniture(id).subscribe(data => {
       alert(data['message']);
+      this.furnitures = this.furnitureServise.getMyFurniture();
     });
-    // this.furnitureServise.deleteFurniture(id).subscribe(() => {
-    //   this.router.navigate(['/furniture/my']);
-    // });
-    window.location.reload();
-    //this.router.navigate(['/furniture/all']);
-  }
+   // window.location.reload();
+    }
 
   changePage(page){
     this.currentPage = page;
