@@ -75,3 +75,8 @@ button {
     background-color: #0277bd;
     color: white;
 }
+
+div.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

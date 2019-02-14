@@ -10,12 +10,6 @@ div.container-fluid {
     margin: 0 auto;
 }
 
-p {
-    color: rgb(245, 189, 4);
-    font-weight: bold;
-    font-size: 18px;
-}
-
 h1,
 h2,
 h4 {
@@ -26,9 +20,10 @@ h4 {
 }
 
 h3 {
-    color: #036096;
+    color: rgb(223, 205, 179);
     padding-top: 5px;
-    text-shadow: 1px 1px 2px rgb(153, 151, 156);
+    text-transform: capitalize;
+    /* text-shadow: 1px 1px 2px rgb(153, 151, 156); */
 }
 
 blockquote {

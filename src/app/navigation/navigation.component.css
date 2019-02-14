@@ -17,9 +17,10 @@ li#logout {
     color: white;
 }
 
-.nav-link:hover {
-    color: lightgrey;
+.nav-item:hover {
+    color: rgb(12, 100, 216);
     font-size: 1.1em;
+    background-color: rgba(215, 236, 245, 0.952);
 }
 
 a.navbar-brand {
@@ -27,5 +28,20 @@ a.navbar-brand {
 }
 
 li#logout:hover {
-    background-color: lightcoral;
+    background-color: rgba(247, 156, 144, 0.952);
+}
+
+img {
+    background-color: white;
+    width: 100%;
+    height: auto;
+}
+
+span.navbar-toggler-icon {
+    margin-left: 10px;
+    margin-left: 10px;
+}
+
+a {
+    font-size: 14px;
 }
