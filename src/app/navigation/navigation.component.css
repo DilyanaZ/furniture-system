@@ -45,3 +45,8 @@ span.navbar-toggler-icon {
 a {
     font-size: 14px;
 }
+
+div.dropdown-menu,
+li.nav-item {
+    border-radius: 10px;
+}

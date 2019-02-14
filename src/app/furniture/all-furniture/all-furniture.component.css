@@ -24,6 +24,9 @@ p {
 
 h1 {
     text-shadow: 3px 3px 3px rgb(50, 22, 126);
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 blockquote {
