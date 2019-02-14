@@ -10,7 +10,7 @@
 
                 <div id="image-holder" class="card-body">
                     <blockquote class="card-blockquote">
-                        <img src="{{f.image}}" />
+                        <img src="../assets/photos/{{f.image}}" />
                     </blockquote>
                     <br>
                     <button type="submit" class="btn" (click)="getOpinions()">Opinions</button>
@@ -60,5 +60,5 @@
 </div>
 <br>
 <p>
-    <a [routerLink]="['/']">Go Back via Markup</a>
+    <a [routerLink]="['/']">Go Back</a>
 </p>

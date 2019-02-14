@@ -25,7 +25,7 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
   isLogged: boolean;
   //isLiked: boolean;
   user: string;
-
+  
   constructor(
     private furnitureService: FurnitureService,
     private route: ActivatedRoute,

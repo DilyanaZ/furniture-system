@@ -43,10 +43,7 @@ export class FurnitureService {
     return this.http.get<Object>(statsUrl);
   }
   sendFurnitureRewiew(id: string, body: FurnitureReviewModel) {
-    return this.http.post(
-      "http://localhost:5000/furniture/details/" + id + "/reviews/create",
-      body
-    );
+    return this.http.post("http://localhost:5000/furniture/details/" + id + "/reviews/create", body);
   }
   getFurnitureReview(id: string) {
     return this.http.get<FurnitureReviewModel[]>(

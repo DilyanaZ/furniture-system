@@ -76,3 +76,8 @@ li {
     color: white;
     font-size: 18px;
 }
+
+input,
+select {
+    border-radius: 10px;
+}
