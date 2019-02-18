@@ -29,6 +29,7 @@ import { FurnitureDetailsComponent } from "./furniture/furniture-details/furnitu
 import { MyFurnitureComponent } from "./furniture/my-furniture/my-furniture.component";
 import { EditFurnitureComponent } from "./furniture/edit-furniture/edit-furniture.component";
 import { CustomRouteReuseStategy } from "./home/CustomRouteReuseStategy";
+import { SearchedFurnitureComponent } from './furniture/searched-furniture/searched-furniture.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CustomRouteReuseStategy } from "./home/CustomRouteReuseStategy";
     AllFurnitureComponent,
     FurnitureDetailsComponent,
     MyFurnitureComponent,
-    EditFurnitureComponent
+    EditFurnitureComponent,
+    SearchedFurnitureComponent
   ],
   imports: [
     BrowserModule,

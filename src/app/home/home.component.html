@@ -7,7 +7,7 @@
     </div>
     <div class="row space-top">
         <div id="stats" class="text-center">
-            <button class="btn h4 p-3" (click)="showStatistic()">Show  statistic</button>
+            <button class="btn h4" (click)="showStatistic()">Show  statistic</button>
             <div class="row" *ngIf="isShown" id="isShown">
                 <h3>Furniture: {{furnitureStatistic | json}} / Users: {{usersStatistic | json}}</h3>
             </div>
@@ -21,11 +21,13 @@
             <h4>Search for a furniture using the form below:</h4>
             <input id="search" type="text" class="form-control" name="search" [(ngModel)]="searchText" #search="ngModel">
             <br>
-            <button type="submit" class="btn">Search</button>
+            <button type="submit" routerLinkActive="router-link-active" class="btn">Search</button>
         </form>
     </div>
 </div>
-<div *ngIf="searchedFurnitures" class="row space-top">
+<app-searched-furniture *ngIf="isSearched" [searchedFurnitures]="searchedFurnitures" [isLogged]="isLogged"></app-searched-furniture>
+
+<!-- <div *ngIf="searchedFurnitures" class="row space-top">
     <div *ngFor="let f of searchedFurnitures | paginate: {
             id: 'allFurniture',
             itemsPerPage: pageSize,
@@ -52,4 +54,4 @@
 <br>
 <pagination-controls id="allFurniture" (pageChange)="changePage($event)" maxSize="9" directionLinks="true" autoHide="true" previousLabel="Previos" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
 
-</pagination-controls>
+</pagination-controls> -->

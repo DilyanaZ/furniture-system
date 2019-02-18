@@ -1,0 +1,31 @@
+<p>
+    searched-furniture works!
+</p>
+<div *ngIf="searchedFurnitures" class="row space-top container-fluid">
+    <div *ngFor="let f of searchedFurnitures | paginate: {
+            id: 'allFurniture',
+            itemsPerPage: pageSize,
+            currentPage: currentPage
+        }" class="col-md-4">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <blockquote class="card-blockquote">
+                    <img src="../assets/photos/{{f.image}}" />
+                    <p class="text-left text-center">{{f.model}}</p>
+                    <p class="text-left text-center">{{f.description}}</p>
+                    <p class="text-left text-center">Likes:{{f.likes.length}}</p>
+                    <div *ngIf="isLogged" class="pull-right">
+                        <a routerLink="/furniture/details/{{f.id}}" class="btn">Details</a>
+                    </div>
+                    <footer>
+                        <cite title="Source Title">  Produced in {{f.year}}</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<pagination-controls id="allFurniture" (pageChange)="changePage($event)" maxSize="9" directionLinks="true" autoHide="true" previousLabel="Previos" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
+
+</pagination-controls>

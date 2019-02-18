@@ -54,18 +54,7 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
   }
 
   like(id: string) {
-    this.furnitureService.like(id, this.user).subscribe(res => {
-      // console.log(res);
-      // this.furnitureService.getById(id).subscribe(res => {
-      //   console.log(res);
-      //   let currentFurniture = res;
-      //   if(currentFurniture['likes'].indexOf(this.user) >= 0){
-      //     this.disabled = true;
-      //   } else {
-      //     this.disabled = false;
-      //   }
-      // });
-    });
+    this.furnitureService.like(id, this.user).subscribe(res => {});
     this.furnitureService.getAllFurniture().subscribe(res => {
       this.furnitures = res;
     });

@@ -13,8 +13,9 @@ import { AuthGuard } from "./authentication/guards/auth.guard";
 import { EditFurnitureComponent } from "./furniture/edit-furniture/edit-furniture.component";
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "home" },
-  { path: "home", component: HomeComponent, data: { shouldReuse: true } },
+  { path: "", pathMatch: "full", redirectTo: "home"},
+  {path: "home", component: HomeComponent},
+  { path: "?search", component: HomeComponent, data: { shouldReuse: true}},
   { path: "signin", component: SigninComponent },
   { path: "signup", component: SignupComponent },
   {

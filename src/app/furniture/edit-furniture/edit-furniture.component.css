@@ -54,3 +54,8 @@ input.btn {
     background-color: #0277bd;
     color: white;
 }
+
+img {
+    width: 200px;
+    height: auto;
+}

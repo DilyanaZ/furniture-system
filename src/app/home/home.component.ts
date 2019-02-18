@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "../authentication/auth.service";
 import { FurnitureService } from "../furniture/furniture.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, ActivatedRouteSnapshot } from "@angular/router";
 import { Location } from "@angular/common";
 import { map } from "rxjs/operators";
 import { Form } from "@angular/forms";
@@ -20,10 +20,8 @@ export class HomeComponent implements OnInit {
   usersStatistic: any;
   isShown: boolean = false;
   urlParams: string;
-  pageSize: number = 3;
-  currentPage: number = 1;
   searchText: string;
-  isLogged:boolean = false;
+  isLogged: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,16 +35,15 @@ export class HomeComponent implements OnInit {
 
   searchFurniture(searchedInput) {
     console.log(searchedInput);
+    //this.location.replaceState(`/home/?search=${searchedInput}`);
     this.searchText = searchedInput;
     this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
       this.searchedFurnitures = res;
       this.isSearched = true;
     });
-    this.location.replaceState(`/home/?search=${searchedInput}`);
-    // console.log(this.router.url);
-    // console.log(this.route.snapshot.queryParams);
-    this.urlParams = this.route.snapshot.queryParams.search;
-    localStorage.setItem("params", this.urlParams);
+    // localStorage.setItem("urlParams", this.route.snapshot.queryParams.search);
+    // console.log(this.route.snapshot.queryParams.search);
+    this.router.navigate(['/?search']);
   }
 
   ngOnInit() {
@@ -63,12 +60,15 @@ export class HomeComponent implements OnInit {
     this.furnitureServise.findFurniture(this.searchText).subscribe(res => {
       this.searchedFurnitures = res;
     });
+    // if (localStorage.getItem("urlParams")) {
+    //   this.searchText = localStorage.getItem("urlParams");
+    // } else {
+    //   this.searchText = "";
+    // }
   }
 
   showStatistic() {
     this.isShown = !this.isShown;
   }
-  changePage(page) {
-    this.currentPage = page;
-  }
+ 
 }

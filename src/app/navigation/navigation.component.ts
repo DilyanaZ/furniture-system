@@ -25,7 +25,6 @@ export class NavigationComponent implements OnInit {
   logout() {
     localStorage.clear();
     this.isLogged = false;
-    window.location.reload();
     this.router.navigate(["/home"]);
   }
 
