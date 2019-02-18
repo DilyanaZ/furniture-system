@@ -12,9 +12,6 @@
                     <blockquote class="card-blockquote">
                         <img src="../assets/photos/{{f.image}}" />
                     </blockquote>
-                    <br>
-                    <button type="submit" class="btn" (click)="getOpinions()">Opinions</button>
-
                 </div>
             </div>
             <div id="info" class="col-md-6 text-left">
@@ -24,7 +21,8 @@
                 <p><b class="font-weight-bold">Description: </b>{{f.description}}</p>
                 <p><b class="font-weight-bold">Price: </b>{{f.price}}</p>
                 <p><b class="font-weight-bold">Material: </b>{{f.material}}</p>
-                <br>
+                <p><b class="font-weight-bold">Likes: </b>{{f.likes.length}}</p>
+                <button type="submit" class="btn" (click)="getOpinions()">Opinions</button>
             </div>
         </div>
     </div>
@@ -59,6 +57,6 @@
     </form>
 </div>
 <br>
-<p>
+<p class="border-dark">
     <a [routerLink]="['/']">Go Back</a>
 </p>

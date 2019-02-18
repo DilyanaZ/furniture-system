@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FurnitureService } from '../furniture.service';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
+import { Furniture } from '../models/furniture';
 
 @Component({
   selector: 'app-furniture-details',
@@ -12,7 +13,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./furniture-details.component.css']
 })
 export class FurnitureDetailsComponent implements OnInit {
-  furniture: Observable<FurnitureModel>;
+  furniture: Observable<Furniture>;
   reviewResult: Observable<FurnitureReviewModel[]>;
   id: string;
   furnitureReview: FurnitureReviewModel;
@@ -41,6 +42,7 @@ export class FurnitureDetailsComponent implements OnInit {
   sendReview() {
     this.furnitureService.sendFurnitureRewiew(this.id, this.furnitureReview).subscribe();
     console.log(this.furnitureReview);
+    this.furnitureReview = new FurnitureReviewModel("", 1);
   }
 
 }

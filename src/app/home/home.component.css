@@ -39,10 +39,6 @@ div.card-body {
     padding-bottom: 0px;
 }
 
-footer {
-    margin-top: 3px;
-}
-
 div.container {
     background-color: rgb(173, 204, 233);
     padding: 30px;
@@ -84,7 +80,7 @@ img {
 blockquote>img,
 div.pull-right,
 blockquote>footer {
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 15px;
 }
 
@@ -96,7 +92,6 @@ p {
     color: white;
     font-weight: bold;
     font-size: 18px;
-    padding: 10px;
 }
 
 #stats {
@@ -133,6 +128,7 @@ a.btn {
     border-radius: 10px;
     background-color: #0277bd;
     color: white;
+    padding: 0.5rem 1rem;
 }
 
 div.card-body {

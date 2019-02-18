@@ -19,7 +19,7 @@
         <h2>Find a furniture</h2>
         <form #searchForm="ngForm" (submit)="searchFurniture(searchForm.value.search)">
             <h4>Search for a furniture using the form below:</h4>
-            <input id="search" type="text" class="form-control" name="search" ngModel #search="ngModel">
+            <input id="search" type="text" class="form-control" name="search" [(ngModel)]="searchText" #search="ngModel">
             <br>
             <button type="submit" class="btn">Search</button>
         </form>
@@ -35,13 +35,11 @@
             <div class="card-body">
                 <blockquote class="card-blockquote">
                     <img src="../assets/photos/{{f.image}}" />
-                    <!-- <p class="text-left text-center">{{f.make}}</p> -->
                     <p class="text-left text-center">{{f.model}}</p>
                     <p class="text-left text-center">{{f.description}}</p>
                     <p class="text-left text-center">Likes:{{f.likes.length}}</p>
-
-                    <div class="pull-right">
-                        <a routerLink="../furniture/details/{{f.id}}" class="btn">Details</a>
+                    <div *ngIf="isLogged" class="pull-right">
+                        <a routerLink="/furniture/details/{{f.id}}" class="btn">Details</a>
                     </div>
                     <footer>
                         <cite title="Source Title">  Produced in {{f.year}}</cite>

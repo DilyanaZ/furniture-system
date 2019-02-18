@@ -28,7 +28,8 @@ export class FurnitureService {
     return this.http.get<Furniture[]>(allUrl);
   }
   getFurnitureDetails(id: string) {
-    return this.http.get<FurnitureModel>(detailsUrl + id);
+    // 
+    return this.http.get<Furniture>(detailsUrl + id);
   }
   getMyFurniture() {
     return this.http.get<FurnitureModel[]>(myFurnitureUrl);

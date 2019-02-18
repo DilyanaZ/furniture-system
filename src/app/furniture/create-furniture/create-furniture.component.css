@@ -48,4 +48,11 @@ input.btn {
     border-radius: 10px;
     background-color: #0277bd;
     color: white;
+    margin-top: 15px;
+}
+
+input#image-holder {
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    text-justify: distribute;
 }

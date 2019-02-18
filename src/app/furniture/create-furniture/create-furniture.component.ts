@@ -3,6 +3,7 @@ import { CreateFurnitureModel } from "../models/create-furniture.model";
 import { FurnitureService } from "../furniture.service";
 import { HttpClient } from "@angular/common/http";
 import { FileUploader } from "ng2-file-upload/ng2-file-upload";
+import { FileUploadModule } from "ng2-file-upload";
 
 @Component({
   selector: "app-create-furniture",
@@ -23,7 +24,6 @@ export class CreateFurnitureComponent implements OnInit {
   }
 
   ngOnInit() {}
-
 
   onFileSelected($event) {
     // if (event.target.files && event.target.files[0]) {

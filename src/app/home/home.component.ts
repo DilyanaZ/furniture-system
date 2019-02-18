@@ -16,13 +16,14 @@ export class HomeComponent implements OnInit {
   username: string;
   searchedFurnitures: any;
   isSearched: boolean;
-  //statistic: Object;
   furnitureStatistic: any;
   usersStatistic: any;
   isShown: boolean = false;
   urlParams: string;
   pageSize: number = 3;
   currentPage: number = 1;
+  searchText: string;
+  isLogged:boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,18 +31,20 @@ export class HomeComponent implements OnInit {
     private furnitureServise: FurnitureService,
     private router: Router,
     private location: Location
-  ) {}
+  ) {
+    this.searchText = "";
+  }
 
   searchFurniture(searchedInput) {
     console.log(searchedInput);
+    this.searchText = searchedInput;
     this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
       this.searchedFurnitures = res;
       this.isSearched = true;
     });
-
     this.location.replaceState(`/home/?search=${searchedInput}`);
-    console.log(this.router.url);
-    console.log(this.route.snapshot.queryParams);
+    // console.log(this.router.url);
+    // console.log(this.route.snapshot.queryParams);
     this.urlParams = this.route.snapshot.queryParams.search;
     localStorage.setItem("params", this.urlParams);
   }
@@ -50,17 +53,16 @@ export class HomeComponent implements OnInit {
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (currentUser) {
       this.username = JSON.parse(localStorage.getItem("currentUser")).username;
+      this.isLogged = true;
     }
     this.furnitureServise.getStatistic().subscribe(data => {
-      this.furnitureStatistic = data['furniture'];
-      this.usersStatistic = data['users'];
+      this.furnitureStatistic = data["furniture"];
+      this.usersStatistic = data["users"];
       console.log(this.furnitureStatistic, this.usersStatistic);
     });
-    if (localStorage.getItem(JSON.stringify("params")) === this.urlParams) {
-      this.furnitureServise.findFurniture(this.urlParams).subscribe(res => {
-        this.searchedFurnitures = res;
-      });
-    }
+    this.furnitureServise.findFurniture(this.searchText).subscribe(res => {
+      this.searchedFurnitures = res;
+    });
   }
 
   showStatistic() {

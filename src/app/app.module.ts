@@ -7,6 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app.routing";
 import { CustomFormsModule } from "ng2-validation";
 import { NgxPaginationModule } from "ngx-pagination";
+import { FileUploadModule } from "ng2-file-upload";
 
 import {
   RouteReuseStrategy,
@@ -50,8 +51,8 @@ import { CustomRouteReuseStategy } from "./home/CustomRouteReuseStategy";
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     CustomFormsModule,
-    NgxPaginationModule
-   
+    NgxPaginationModule,
+    FileUploadModule
   ],
   providers: [
     AuthService,

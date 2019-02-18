@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row space-top">
         <div class="col-md-12">
-            <h1 class="bg-white p-1">Profile Page</h1>
+            <h1 class="bg-white p-3">Profile Page</h1>
             <p>Listing your furniture.</p>
         </div>
     </div>
@@ -11,25 +11,25 @@
             itemsPerPage: pageSize,
             currentPage: currentPage
         }" class="col-md-4">
-            <div class="card">
+            <div class="card  text-white bg-info">
                 <div class="card-body">
                     <blockquote class="card-blockquote">
                         <img src="../assets/photos/{{f.image}}" />
                         <p class="text-left text-center">{{f.model}}</p>
                         <p class="text-left text-center">{{f.description}}</p>
                         <p class="text-left text-center">Likes: {{f.likes.length}}</p>
-                        <div id="buttons">
-                            <a routerLink="/furniture/details/{{f.id}}" class="btn pull-right shadow">Details</a>
-                            <a routerLink="/furniture/edit/{{f.id}}" class="btn pull-left shadow">Edit</a>
+                        <div class="row space-top" id="buttons">
+                            <a routerLink="/furniture/details/{{f.id}}" class="btn shadow ml-md-2">Details</a>
+                            <a routerLink="/furniture/edit/{{f.id}}" class="btn shadow">Edit</a>
+                            <a id="delete" (click)="deleteItem(f.id)" class="btn shadow pull-right">Delete Item</a>
                         </div>
-                        <br>
                         <!-- <div class="pull-left">
                             <a routerLink="/furniture/edit/{{f.id}}" class="btn">Edit</a>
                         </div> -->
                         <br>
-                        <div class="pull-left">
+                        <!-- <div class="pull-left">
                             <a id="delete" (click)="deleteItem(f.id)" class="btn shadow">Delete Item</a>
-                        </div>
+                        </div> -->
                         <footer>
                             <cite title="Source Title"> Produced in {{f.year}}</cite>
                         </footer>

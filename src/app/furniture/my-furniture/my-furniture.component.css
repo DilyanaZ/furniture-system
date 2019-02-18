@@ -13,7 +13,10 @@ p {
     color: white;
     font-weight: bold;
     font-size: 18px;
-    padding: 10px;
+}
+
+footer {
+    color: white;
 }
 
 div>p {
@@ -47,7 +50,9 @@ div.card-body {
 }
 
 div#buttons {
+    margin: 0 auto;
     border-radius: 10px;
+    width: 100%;
 }
 
 a.btn {
@@ -55,13 +60,15 @@ a.btn {
     background-color: #0277bd;
     color: white;
     margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0.5rem 1rem;
 }
 
 a#delete {
     border-radius: 10px;
     background-color: #d3a3b5;
     color: white;
-    margin-bottom: 10px;
+    margin-right: 0px;
     border: 1px solid #c7366e;
 }
 
