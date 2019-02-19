@@ -1,18 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, DoCheck, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "../authentication/auth.service";
 import { FurnitureService } from "../furniture/furniture.service";
 import { ActivatedRoute, ActivatedRouteSnapshot } from "@angular/router";
 import { Location } from "@angular/common";
-import { map } from "rxjs/operators";
-import { Form } from "@angular/forms";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   username: string;
   searchedFurnitures: any;
   isSearched: boolean;
@@ -22,6 +21,7 @@ export class HomeComponent implements OnInit {
   urlParams: string;
   searchText: string;
   isLogged: boolean = false;
+  furnitures$: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,13 +37,13 @@ export class HomeComponent implements OnInit {
     console.log(searchedInput);
     //this.location.replaceState(`/home/?search=${searchedInput}`);
     this.searchText = searchedInput;
-    this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
+    this. furnitures$ = this.furnitureServise.findFurniture(searchedInput).subscribe(res => {
       this.searchedFurnitures = res;
       this.isSearched = true;
     });
     // localStorage.setItem("urlParams", this.route.snapshot.queryParams.search);
     // console.log(this.route.snapshot.queryParams.search);
-    this.router.navigate(['/?search']);
+    this.router.navigate(["/?search"]);
   }
 
   ngOnInit() {
@@ -60,15 +60,14 @@ export class HomeComponent implements OnInit {
     this.furnitureServise.findFurniture(this.searchText).subscribe(res => {
       this.searchedFurnitures = res;
     });
-    // if (localStorage.getItem("urlParams")) {
-    //   this.searchText = localStorage.getItem("urlParams");
-    // } else {
-    //   this.searchText = "";
-    // }
+  }
+  
+  ngOnDestroy(){
+    this. furnitures$.unsubscribe();
   }
 
+ 
   showStatistic() {
     this.isShown = !this.isShown;
   }
- 
 }
