@@ -19,7 +19,7 @@
                         <p class="text-left text-center">{{f.model}}</p>
                         <p class="text-left text-center">{{f.description}}</p>
                         <p class="text-left text-center">
-                            <button *ngIf="!f.likes.includes(user)" type="submit" class="btn btn-light  pull-right" (click)="like(f.id)">Like</button> Likes:{{f.likes.length}}
+                            <button *ngIf="!f.likes.includes(user) && user" type="submit" class="btn btn-light  pull-right" (click)="like(f.id)">Like</button> Likes:{{f.likes.length}}
                         </p>
                         <div class="row text-center">
                             <div id="inner" *ngIf="isLogged && user" class="text-center">

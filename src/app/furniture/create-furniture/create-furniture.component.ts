@@ -14,8 +14,6 @@ export class CreateFurnitureComponent implements OnInit {
   bindingModel: CreateFurnitureModel;
   ftu: File = null;
   
-
-
   constructor(
     private furnitureService: FurnitureService,
     private http: HttpClient

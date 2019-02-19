@@ -53,6 +53,9 @@ input.btn {
     border-radius: 10px;
     background-color: #0277bd;
     color: white;
+    margin-top: 15px;
+    width: 20%;
+    padding: 0.5rem 1rem;
 }
 
 img {

@@ -19,6 +19,7 @@ const editFurnitureUrl = "http://localhost:5000/furniture/edit/";
   providedIn: "root"
 })
 export class FurnitureService {
+  isSearched: boolean;
   constructor(private http: HttpClient) {}
 
   createFurniture(body: CreateFurnitureModel) {
@@ -28,7 +29,7 @@ export class FurnitureService {
     return this.http.get<Furniture[]>(allUrl);
   }
   getFurnitureDetails(id: string) {
-    // 
+    //
     return this.http.get<Furniture>(detailsUrl + id);
   }
   getMyFurniture() {
@@ -44,7 +45,10 @@ export class FurnitureService {
     return this.http.get<Object>(statsUrl);
   }
   sendFurnitureRewiew(id: string, body: FurnitureReviewModel) {
-    return this.http.post("http://localhost:5000/furniture/details/" + id + "/reviews/create", body);
+    return this.http.post(
+      "http://localhost:5000/furniture/details/" + id + "/reviews/create",
+      body
+    );
   }
   getFurnitureReview(id: string) {
     return this.http.get<FurnitureReviewModel[]>(

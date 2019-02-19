@@ -55,7 +55,7 @@ import { SearchedFurnitureComponent } from './furniture/searched-furniture/searc
     CustomFormsModule,
     NgxPaginationModule,
     FileUploadModule
-  ],
+     ],
   providers: [
     AuthService,
     {

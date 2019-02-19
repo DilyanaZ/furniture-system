@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, DoCheck } from "@angular/core";
 import { FurnitureService } from "../furniture.service";
 import { FurnitureModel } from "../models/furniture.model";
 import { Observable, Subscription } from "rxjs";
@@ -15,14 +15,12 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
   //furnitures: Observable<Furniture[]>;
   furnitures: Array<Furniture>;
   furnitures$: Subscription;
-  //furniture: Furniture;
   id: string;
-
   pageSize: number = 3;
   currentPage: number = 1;
   disabled: boolean = false;
   isLogged: boolean;
-  //isLiked: boolean;
+  isLiked: boolean;
   user: string;
 
   constructor(
@@ -45,18 +43,28 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
-    this.furnitures$.unsubscribe();
-  }
-
   changePage(page) {
     this.currentPage = page;
   }
 
   like(id: string) {
     this.furnitureService.like(id, this.user).subscribe(res => {});
-    this.furnitureService.getAllFurniture().subscribe(res => {
-      this.furnitures = res;
-    });
+    this.isLiked = true;
+    if (this.isLiked) {
+      this.furnitureService.getAllFurniture().subscribe(res => {
+        this.furnitures = res;
+      });
+    }
+  }
+  // ngDoCheck(){
+  //   this.furnitures$ = this.furnitureService.getAllFurniture().subscribe(res =>
+  //   {
+  //     this.furnitures = res;
+  //   });
+  // }
+  ngOnDestroy() {
+    if (this.furnitures$) {
+      this.furnitures$.unsubscribe();
+    }
   }
 }
