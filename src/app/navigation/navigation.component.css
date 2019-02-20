@@ -3,7 +3,7 @@ ul {
 }
 
 .navbar {
-    background-color: rgb(7, 61, 116);
+    background-color: rgb(76, 63, 112);
     color: white;
 }
 
@@ -17,10 +17,17 @@ li#logout {
     color: white;
 }
 
+.nav-link:hover {
+    color: rgb(76, 63, 112);
+    background-color: rgba(215, 236, 245, 0.952);
+    border-radius: 10px;
+}
+
 .nav-item:hover {
-    color: rgb(12, 100, 216);
+    color: rgb(76, 63, 112);
     font-size: 1.1em;
     background-color: rgba(215, 236, 245, 0.952);
+    border-radius: 10px;
 }
 
 a.navbar-brand {

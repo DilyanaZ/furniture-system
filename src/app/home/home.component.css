@@ -15,14 +15,15 @@ h2,
 h4 {
     padding: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(7, 61, 116);
+    color: rgb(79, 78, 82);
     text-shadow: 3px 3px 3px rgb(138, 137, 141);
 }
 
 h3 {
-    color: rgb(223, 205, 179);
-    padding-top: 5px;
+    color: rgb(79, 78, 82);
+    padding: 5px 10px 5px 5px;
     text-transform: capitalize;
+    border: 1px solid rgb(79, 78, 82);
     /* text-shadow: 1px 1px 2px rgb(153, 151, 156); */
 }
 
@@ -101,7 +102,7 @@ p {
 button {
     margin: 10px;
     border-radius: 10px;
-    background-color: #0277bd;
+    background-color: rgb(91, 76, 134);
     color: white;
     padding: 0.5rem 1rem;
 }
@@ -110,7 +111,7 @@ button {
     background-color: white;
     margin: 10px;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 #landing {
@@ -127,7 +128,7 @@ a {
 
 a.btn {
     border-radius: 10px;
-    background-color: #0277bd;
+    background-color: rgb(91, 76, 134);
     color: white;
     padding: 0.5rem 1rem;
 }

@@ -38,13 +38,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     console.log(searchedInput);
     this.location.replaceState(`/home/?search=${searchedInput}`);
     this.searchText = searchedInput;
-    this.furnitures$ = this.furnitureServise
-      .findFurniture(searchedInput)
-      .subscribe(res => {
-        this.searchedFurnitures = res;
-        this.isSearched = true;
-        this.furnitureServise.isSearched = true;
-      });
+    this.isSearched = true;
+    this.furnitureServise.isSearched = true;
+    // this.furnitures$ = this.furnitureServise
+    //   .findFurniture(searchedInput)
+    //   .subscribe(res => {
+    //     this.searchedFurnitures = res;
+    //   });
     // let urlTree = this.router.parseUrl(this.router.url);
     // urlTree.queryParams['search'] = this.searchText;
     //     this.router.navigateByUrl(urlTree);
