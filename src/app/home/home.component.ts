@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {
     this.searchText = "";
   }
+  
 
   searchFurniture(searchedInput) {
     console.log(searchedInput);
