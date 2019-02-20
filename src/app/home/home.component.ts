@@ -1,5 +1,5 @@
-import { Component, OnInit, DoCheck, OnDestroy } from "@angular/core";
-import { Router, UrlTree } from "@angular/router";
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Router } from "@angular/router";
 import { AuthService } from "../authentication/auth.service";
 import { FurnitureService } from "../furniture/furniture.service";
 import { ActivatedRoute, ActivatedRouteSnapshot } from "@angular/router";
@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {
     this.searchText = "";
   }
-  
 
   searchFurniture(searchedInput) {
     console.log(searchedInput);
@@ -41,18 +40,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.searchText = searchedInput;
     this.isSearched = true;
     this.furnitureServise.isSearched = true;
-    // this.furnitures$ = this.furnitureServise
-    //   .findFurniture(searchedInput)
-    //   .subscribe(res => {
-    //     this.searchedFurnitures = res;
-    //   });
+    this.furnitures$ = this.furnitureServise
+      .findFurniture(searchedInput)
+      .subscribe(res => {
+        this.searchedFurnitures = res;
+      });
+      this.router.navigate(["home/?search"]);
     // let urlTree = this.router.parseUrl(this.router.url);
     // urlTree.queryParams['search'] = this.searchText;
     //     this.router.navigateByUrl(urlTree);
     // console.log(this.route.snapshot.url);
     // console.log(this.router.routerState.snapshot);
     // localStorage.setItem("urlParams", this.route.snapshot.queryParams.search);
-    this.router.navigate(["home/?search"]);
   }
 
   ngOnInit() {
