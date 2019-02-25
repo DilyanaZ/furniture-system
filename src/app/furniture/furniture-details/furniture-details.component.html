@@ -55,8 +55,10 @@
         </div>
         <button type="submit" class="btn" [disabled]="reviewForm.form.invalid">Submit</button>
     </form>
+
 </div>
-<br>
-<p class="border-dark">
-    <a [routerLink]="['/']">Go Back</a>
-</p>
+<div id="back-button" class="container">
+    <p class="border-dark float-right">
+        <button id="back" (click)="goBack()"><span> <- </span>Go Back</button>
+    </p>
+</div>

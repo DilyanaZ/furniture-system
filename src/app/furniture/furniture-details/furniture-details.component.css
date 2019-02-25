@@ -67,8 +67,9 @@ form {
 
 button.btn {
     border-radius: 10px;
-    background-color: #04639b;
+    background-color: rgb(91, 76, 134);
     color: white;
+    padding: 0.5rem 1rem;
 }
 
 li {
@@ -79,4 +80,18 @@ li {
 input,
 select {
     border-radius: 10px;
+}
+
+button#back {
+    position: relative;
+    left: 20%;
+    margin-top: 20%;
+    border-radius: 10px;
+    background-color: rgb(91, 76, 134);
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+div#back-button {
+    padding: 0;
 }

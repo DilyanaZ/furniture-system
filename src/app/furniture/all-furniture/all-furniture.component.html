@@ -6,11 +6,11 @@
         </div>
     </div>
     <div *ngIf="furnitures" class="row space-top">
-        <div *ngFor="let f of furnitures | paginate: {
+        <div *ngFor="let f of furnitures | async | paginate: {
             id: 'allFurniture',
             itemsPerPage: pageSize,
             currentPage: currentPage
-        }" class="col-md-4">
+         }" class="col-md-4">
             <div class="card text-white bg-info">
                 <div class="card-body">
                     <blockquote class="card-blockquote">

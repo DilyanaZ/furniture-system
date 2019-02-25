@@ -44,5 +44,8 @@ export class FurnitureDetailsComponent implements OnInit {
     console.log(this.furnitureReview);
     this.furnitureReview = new FurnitureReviewModel("", 1);
   }
+  goBack(){
+    this.router.navigate(['/home/?search']);
+  }
 
 }

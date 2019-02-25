@@ -11,6 +11,7 @@ import { MyFurnitureComponent } from "./furniture/my-furniture/my-furniture.comp
 import { CreateFurnitureComponent } from "./furniture/create-furniture/create-furniture.component";
 import { AuthGuard } from "./authentication/guards/auth.guard";
 import { EditFurnitureComponent } from "./furniture/edit-furniture/edit-furniture.component";
+import { SearchedFurnitureComponent } from './furniture/searched-furniture/searched-furniture.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
@@ -21,7 +22,6 @@ const routes: Routes = [
       { path: "?search", component: HomeComponent, data: { shouldReuse: true } }
     ]
   },
-
   { path: "signin", component: SigninComponent },
   { path: "signup", component: SignupComponent },
   {

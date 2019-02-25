@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   searchFurniture(searchedInput) {
-    console.log(searchedInput);
+    console.log("this searchedInput" + searchedInput, this.searchText);
     this.location.replaceState(`/home/?search=${searchedInput}`);
     this.searchText = searchedInput;
     this.isSearched = true;
@@ -45,14 +45,18 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(res => {
         this.searchedFurnitures = res;
       });
-      this.router.navigate(["home/?search"]);
-    // let urlTree = this.router.parseUrl(this.router.url);
-    // urlTree.queryParams['search'] = this.searchText;
-    //     this.router.navigateByUrl(urlTree);
-    // console.log(this.route.snapshot.url);
-    // console.log(this.router.routerState.snapshot);
-    // localStorage.setItem("urlParams", this.route.snapshot.queryParams.search);
-  }
+           this.router.routeReuseStrategy;
+      
+      this.router.navigate(['/home/?search']);
+      // this.router.navigate(
+      //   [], 
+      //   {
+      //     relativeTo: this.route,
+      //     queryParams: { search: this.searchText },
+      //     queryParamsHandling: "merge"
+      //   });
+        console.log(this.route.firstChild);
+   }
 
   ngOnInit() {
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));

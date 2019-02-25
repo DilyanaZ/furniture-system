@@ -19,7 +19,7 @@
         <h2>Find a furniture</h2>
         <form #searchForm="ngForm" (submit)="searchFurniture(searchForm.value.search)">
             <h4>Search for a furniture using the form below:</h4>
-            <input id="search" type="text" class="form-control" name="search" [(ngModel)]="searchText" #search="ngModel">
+            <input id="search" type="text" class="form-control" name="search" [(ngModel)]="searchText" #search="ngModel" placeholder="search">
             <br>
             <button type="submit" routerLinkActive="router-link-active" class="btn">Search</button>
         </form>

@@ -11,9 +11,9 @@ import { ActivatedRoute, Router } from "@angular/router";
   templateUrl: "./all-furniture.component.html",
   styleUrls: ["./all-furniture.component.css"]
 })
-export class AllFurnitureComponent implements OnInit, OnDestroy {
-  //furnitures: Observable<Furniture[]>;
-  furnitures: Array<Furniture>;
+export class AllFurnitureComponent implements OnInit {
+  furnitures: Observable<Furniture[]>;
+ // furnitures: Array<Furniture>;
   furnitures$: Subscription;
   id: string;
   pageSize: number = 3;
@@ -35,12 +35,8 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.id = this.route.snapshot.params["id"];
     this.user = localStorage.getItem("email");
-    this.furnitures$ = this.furnitureService
-      .getAllFurniture()
-      .subscribe(res => {
-        this.furnitures = res;
-        console.log(this.furnitures);
-      });
+    this.furnitures = this.furnitureService.getAllFurniture();
+      
   }
 
   changePage(page) {
@@ -50,21 +46,18 @@ export class AllFurnitureComponent implements OnInit, OnDestroy {
   like(id: string) {
     this.furnitureService.like(id, this.user).subscribe(res => {});
     this.isLiked = true;
-    if (this.isLiked) {
-      this.furnitureService.getAllFurniture().subscribe(res => {
-        this.furnitures = res;
-      });
-    }
+    this.furnitures = this.furnitureService.getAllFurniture();
   }
+
   // ngDoCheck(){
   //   this.furnitures$ = this.furnitureService.getAllFurniture().subscribe(res =>
   //   {
   //     this.furnitures = res;
   //   });
   // }
-  ngOnDestroy() {
-    if (this.furnitures$) {
-      this.furnitures$.unsubscribe();
-    }
-  }
+  // ngOnDestroy() {
+  //   if (this.furnitures$) {
+  //     this.furnitures$.unsubscribe();
+  //   }
+  // }
 }
